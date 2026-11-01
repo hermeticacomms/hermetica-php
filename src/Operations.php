@@ -2932,6 +2932,12 @@ trait Operations
         return $this->request('GET', '/v1/commerce/stores/{storeId}/stats', $o);
     }
 
+    /** GET /v1/compliance/gpc - Whether a browser Global Privacy Control / Do Not Track signal counts as a tracking opt-out (default on) */
+    public function getV1ComplianceGpc(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/compliance/gpc', $o);
+    }
+
     /** GET /v1/compliance/orphan-purge - Days after which a contact with no list, message or consent history is erased (null = never) */
     public function getV1ComplianceOrphanPurge(array $o = []): mixed
     {
@@ -5048,6 +5054,12 @@ trait Operations
     public function getV1ProfilesByIdPgpKey(array $o = []): mixed
     {
         return $this->request('GET', '/v1/profiles/{id}/pgp-key', $o);
+    }
+
+    /** GET /v1/profiles/{id}/predicted-gender - Gender inferred from the first name (likely_female, likely_male or uncertain); an inference, not a stored fact */
+    public function getV1ProfilesByIdPredictedGender(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/profiles/{id}/predicted-gender', $o);
     }
 
     /** GET /v1/profiles/{id}/prediction */
@@ -11690,6 +11702,12 @@ trait Operations
     public function putV1CommerceStoresByStoreIdProductsByProductIdVariantsByVariantId(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/commerce/stores/{storeId}/products/{productId}/variants/{variantId}', $o);
+    }
+
+    /** PUT /v1/compliance/gpc */
+    public function putV1ComplianceGpc(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/compliance/gpc', $o);
     }
 
     /** PUT /v1/compliance/orphan-purge - Clean up contacts that never joined a list, got a message or gave consent */
