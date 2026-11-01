@@ -1,6 +1,6 @@
 # Hermetica PHP client
 
-Generated from `docs/api/openapi.json` by `node scripts/gen-sdks.mjs` (2041 operations). PHP 8.1+, curl and json extensions, no other dependencies.
+Generated from `docs/api/openapi.json` by `node scripts/gen-sdks.mjs` (2042 operations). PHP 8.1+, curl and json extensions, no other dependencies.
 
 ```php
 $hm = new Hermetica\Client('hm_sk_...', 'https://api.example.com');

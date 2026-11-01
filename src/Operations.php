@@ -11800,6 +11800,12 @@ trait Operations
         return $this->request('PUT', '/v1/integrations/connections/{id}/declarative/push', $o);
     }
 
+    /** PUT /v1/integrations/connections/{id}/declarative/webhook-secret - Save the signing secret the vendor shows only after it verified the webhook URL (e.g. Clover X-Clover-Auth); it is never returned */
+    public function putV1IntegrationsConnectionsByIdDeclarativeWebhookSecret(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/integrations/connections/{id}/declarative/webhook-secret', $o);
+    }
+
     /** PUT /v1/integrations/secrets/{name} - Create or replace a secret */
     public function putV1IntegrationsSecretsByName(array $o = []): mixed
     {
