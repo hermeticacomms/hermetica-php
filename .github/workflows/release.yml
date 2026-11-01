@@ -1,0 +1,15 @@
+# Push a "v0.1.0" tag to release. Packagist picks the tag up through its GitHub hook; the attested archive is the provenance record.
+name: release
+on:
+  push: { tags: ['v*'] }
+permissions: { contents: write, id-token: write, attestations: write }
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: git archive --prefix "hermetica-php-$GITHUB_REF_NAME/" -o "hermetica-php-$GITHUB_REF_NAME.tar.gz" HEAD
+      - uses: actions/attest-build-provenance@v3
+        with: { subject-path: 'hermetica-php-*.tar.gz' }
+      - run: gh release create "$GITHUB_REF_NAME" hermetica-php-*.tar.gz --generate-notes
+        env: { GH_TOKEN: '${{ github.token }}' }
