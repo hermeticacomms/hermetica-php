@@ -10,6 +10,18 @@ trait Operations
     /** @param array<string,mixed> $o keys: path, query, body, idempotencyKey */
     abstract public function request(string $method, string $path, array $o = []): mixed;
 
+    /** DELETE /hub/{ws}/api/wishlist/{productId} */
+    public function deleteHubByWsApiWishlistByProductId(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/hub/{ws}/api/wishlist/{productId}', $o);
+    }
+
+    /** DELETE /mcp - Not offered: the hosted MCP server is stateless (POST only). */
+    public function deleteMcp(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/mcp', $o);
+    }
+
     /** DELETE /p/n/{ref}/p/{slug}/highlights/{id} - Remove one of the reader's own highlights */
     public function deletePNByRefPBySlugHighlightsById(array $o = []): mixed
     {
@@ -40,6 +52,12 @@ trait Operations
         return $this->request('DELETE', '/v1/ads/audiences/{id}', $o);
     }
 
+    /** DELETE /v1/ads/lead-syncs/{id} - Stop syncing a lead-ad form */
+    public function deleteV1AdsLeadSyncsById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/ads/lead-syncs/{id}', $o);
+    }
+
     /** DELETE /v1/ad-spend - Remove imported spend for a platform and date range */
     public function deleteV1AdSpend(array $o = []): mixed
     {
@@ -56,6 +74,18 @@ trait Operations
     public function deleteV1AgencyMembersByUserId(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/agency/members/{userId}', $o);
+    }
+
+    /** DELETE /v1/ai-agents/{id} */
+    public function deleteV1AiAgentsById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/ai-agents/{id}', $o);
+    }
+
+    /** DELETE /v1/ai-agents/{id}/guidances/{guidanceId} */
+    public function deleteV1AiAgentsByIdGuidancesByGuidanceId(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/ai-agents/{id}/guidances/{guidanceId}', $o);
     }
 
     /** DELETE /v1/ai/prompt-templates/{id} */
@@ -118,6 +148,18 @@ trait Operations
         return $this->request('DELETE', '/v1/assets/{id}', $o);
     }
 
+    /** DELETE /v1/association-labels/{id} */
+    public function deleteV1AssociationLabelsById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/association-labels/{id}', $o);
+    }
+
+    /** DELETE /v1/associations/{fromType}/{fromId}/{toType}/{toId} */
+    public function deleteV1AssociationsByFromTypeByFromIdByToTypeByToId(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/associations/{fromType}/{fromId}/{toType}/{toId}', $o);
+    }
+
     /** DELETE /v1/attributes/computed/{key} */
     public function deleteV1AttributesComputedByKey(array $o = []): mixed
     {
@@ -152,6 +194,12 @@ trait Operations
     public function deleteV1AuthorizedAppsByClientId(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/authorized-apps/{clientId}', $o);
+    }
+
+    /** DELETE /v1/batches/{id} - Cancel: calls not yet run are skipped (one already in flight completes) */
+    public function deleteV1BatchesById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/batches/{id}', $o);
     }
 
     /** DELETE /v1/blocklist/{id} */
@@ -190,6 +238,12 @@ trait Operations
         return $this->request('DELETE', '/v1/budgets/{id}/spend/{spendId}', $o);
     }
 
+    /** DELETE /v1/calendar-feeds/{id} */
+    public function deleteV1CalendarFeedsById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/calendar-feeds/{id}', $o);
+    }
+
     /** DELETE /v1/calendar/mine/{id} */
     public function deleteV1CalendarMineById(array $o = []): mixed
     {
@@ -214,6 +268,12 @@ trait Operations
         return $this->request('DELETE', '/v1/campaigns/{id}', $o);
     }
 
+    /** DELETE /v1/campaigns/{id}/audiences/{audienceId} */
+    public function deleteV1CampaignsByIdAudiencesByAudienceId(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/campaigns/{id}/audiences/{audienceId}', $o);
+    }
+
     /** DELETE /v1/campaigns/{id}/feedback/{feedbackId} */
     public function deleteV1CampaignsByIdFeedbackByFeedbackId(array $o = []): mixed
     {
@@ -224,6 +284,12 @@ trait Operations
     public function deleteV1CampaignsByIdMessagesByMessageId(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/campaigns/{id}/messages/{messageId}', $o);
+    }
+
+    /** DELETE /v1/campaigns/{id}/messages/{messageId}/variants/{key} */
+    public function deleteV1CampaignsByIdMessagesByMessageIdVariantsByKey(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/campaigns/{id}/messages/{messageId}/variants/{key}', $o);
     }
 
     /** DELETE /v1/campaigns/{id}/permanent */
@@ -346,6 +412,12 @@ trait Operations
         return $this->request('DELETE', '/v1/content-slots/{key}', $o);
     }
 
+    /** DELETE /v1/content-slots/pushes/{id} - Withdraw pushed content (the slot falls back to its rules) */
+    public function deleteV1ContentSlotsPushesById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/content-slots/pushes/{id}', $o);
+    }
+
     /** DELETE /v1/coupon-pools/{id} */
     public function deleteV1CouponPoolsById(array $o = []): mixed
     {
@@ -418,6 +490,18 @@ trait Operations
         return $this->request('DELETE', '/v1/deliverability/sources/{id}', $o);
     }
 
+    /** DELETE /v1/destinations/{id} */
+    public function deleteV1DestinationsById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/destinations/{id}', $o);
+    }
+
+    /** DELETE /v1/do-not-contact/{id} */
+    public function deleteV1DoNotContactById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/do-not-contact/{id}', $o);
+    }
+
     /** DELETE /v1/event-definitions/{name} - Remove the declaration only; stored events stay */
     public function deleteV1EventDefinitionsByName(array $o = []): mixed
     {
@@ -434,6 +518,12 @@ trait Operations
     public function deleteV1FormsById(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/forms/{id}', $o);
+    }
+
+    /** DELETE /v1/forms/{id}/submissions/{submissionId} - Delete one submission (the consent records it created stay as proof) */
+    public function deleteV1FormsByIdSubmissionsBySubmissionId(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/forms/{id}/submissions/{submissionId}', $o);
     }
 
     /** DELETE /v1/frequency-settings/{id} */
@@ -472,6 +562,12 @@ trait Operations
         return $this->request('DELETE', '/v1/import-schedules/{id}', $o);
     }
 
+    /** DELETE /v1/in-app-components/{id} - Delete a component */
+    public function deleteV1InAppComponentsById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/in-app-components/{id}', $o);
+    }
+
     /** DELETE /v1/in-app-messages/{id} - Delete an in-app message and its events */
     public function deleteV1InAppMessagesById(array $o = []): mixed
     {
@@ -490,6 +586,12 @@ trait Operations
         return $this->request('DELETE', '/v1/inbound/routes/{id}', $o);
     }
 
+    /** DELETE /v1/inbox-messages/{id} - Withdraw an inbox message */
+    public function deleteV1InboxMessagesById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/inbox-messages/{id}', $o);
+    }
+
     /** DELETE /v1/integrations/connections/{id} */
     public function deleteV1IntegrationsConnectionsById(array $o = []): mixed
     {
@@ -500,6 +602,18 @@ trait Operations
     public function deleteV1IntegrationsConnectionsByIdHubspotListsBySyncId(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/integrations/connections/{id}/hubspot/lists/{syncId}', $o);
+    }
+
+    /** DELETE /v1/integrations/crm-imports/{id} */
+    public function deleteV1IntegrationsCrmImportsById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/integrations/crm-imports/{id}', $o);
+    }
+
+    /** DELETE /v1/integrations/packages/{packageId} - Uninstall; refused while connections use it */
+    public function deleteV1IntegrationsPackagesByPackageId(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/integrations/packages/{packageId}', $o);
     }
 
     /** DELETE /v1/integrations/secrets/{name} - Delete a secret no endpoint uses */
@@ -518,6 +632,12 @@ trait Operations
     public function deleteV1JobsById(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/jobs/{id}', $o);
+    }
+
+    /** DELETE /v1/landing-page-clusters/{id} */
+    public function deleteV1LandingPageClustersById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/landing-page-clusters/{id}', $o);
     }
 
     /** DELETE /v1/landing-page-folders/{id} - Pages move to the root; nothing is deleted */
@@ -544,6 +664,12 @@ trait Operations
         return $this->request('DELETE', '/v1/leads/companies/{id}', $o);
     }
 
+    /** DELETE /v1/leads/companies/{id}/files/{fileId} */
+    public function deleteV1LeadsCompaniesByIdFilesByFileId(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/leads/companies/{id}/files/{fileId}', $o);
+    }
+
     /** DELETE /v1/leads/companies/{id}/link/{profileId} */
     public function deleteV1LeadsCompaniesByIdLinkByProfileId(array $o = []): mixed
     {
@@ -554,6 +680,12 @@ trait Operations
     public function deleteV1LeadsCompaniesByIdNotesByNoteId(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/leads/companies/{id}/notes/{noteId}', $o);
+    }
+
+    /** DELETE /v1/leads/company-fields/{key} */
+    public function deleteV1LeadsCompanyFieldsByKey(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/leads/company-fields/{key}', $o);
     }
 
     /** DELETE /v1/leads/company-lists/{id} */
@@ -622,10 +754,40 @@ trait Operations
         return $this->request('DELETE', '/v1/lists/{id}/optin-template', $o);
     }
 
+    /** DELETE /v1/loyalty/programs/{id} - Delete a programme with its ledger (balances are lost) */
+    public function deleteV1LoyaltyProgramsById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/loyalty/programs/{id}', $o);
+    }
+
+    /** DELETE /v1/loyalty/programs/{id}/rewards/{subId} */
+    public function deleteV1LoyaltyProgramsByIdRewardsBySubId(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/loyalty/programs/{id}/rewards/{subId}', $o);
+    }
+
+    /** DELETE /v1/loyalty/programs/{id}/rules/{subId} */
+    public function deleteV1LoyaltyProgramsByIdRulesBySubId(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/loyalty/programs/{id}/rules/{subId}', $o);
+    }
+
+    /** DELETE /v1/loyalty/programs/{id}/tiers/{subId} */
+    public function deleteV1LoyaltyProgramsByIdTiersBySubId(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/loyalty/programs/{id}/tiers/{subId}', $o);
+    }
+
     /** DELETE /v1/mapped-metrics/{role} - Reset a role to its default event */
     public function deleteV1MappedMetricsByRole(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/mapped-metrics/{role}', $o);
+    }
+
+    /** DELETE /v1/marketing-events/apps/{id} */
+    public function deleteV1MarketingEventsAppsById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/marketing-events/apps/{id}', $o);
     }
 
     /** DELETE /v1/marketing-events/{id} */
@@ -650,6 +812,12 @@ trait Operations
     public function deleteV1MarketingEventsByRefByRefListsByListId(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/marketing-events/by-ref/{ref}/lists/{listId}', $o);
+    }
+
+    /** DELETE /v1/me/identities/{id} */
+    public function deleteV1MeIdentitiesById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/me/identities/{id}', $o);
     }
 
     /** DELETE /v1/members/{userId} */
@@ -754,7 +922,7 @@ trait Operations
         return $this->request('DELETE', '/v1/newsletter/stripe', $o);
     }
 
-    /** DELETE /v1/notes/{id} */
+    /** DELETE /v1/notes/{id} - Delete a contact or company note */
     public function deleteV1NotesById(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/notes/{id}', $o);
@@ -808,16 +976,34 @@ trait Operations
         return $this->request('DELETE', '/v1/object-types/{id}/relationships/{target}', $o);
     }
 
+    /** DELETE /v1/operator/waitlist/{id} */
+    public function deleteV1OperatorWaitlistById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/operator/waitlist/{id}', $o);
+    }
+
     /** DELETE /v1/outbound/ai-key */
     public function deleteV1OutboundAiKey(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/outbound/ai-key', $o);
     }
 
+    /** DELETE /v1/outbound/booking-pages/{id} */
+    public function deleteV1OutboundBookingPagesById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/outbound/booking-pages/{id}', $o);
+    }
+
     /** DELETE /v1/outbound/call-dispositions/{key} */
     public function deleteV1OutboundCallDispositionsByKey(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/outbound/call-dispositions/{key}', $o);
+    }
+
+    /** DELETE /v1/outbound/calls/{id}/recording - Delete the recording link and transcript of a logged call (outcome, length and notes stay) */
+    public function deleteV1OutboundCallsByIdRecording(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/outbound/calls/{id}/recording', $o);
     }
 
     /** DELETE /v1/outbound/domain-caps/{id} */
@@ -886,10 +1072,46 @@ trait Operations
         return $this->request('DELETE', '/v1/outbound/tasks/{id}', $o);
     }
 
+    /** DELETE /v1/outbound/task-types/{id} */
+    public function deleteV1OutboundTaskTypesById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/outbound/task-types/{id}', $o);
+    }
+
+    /** DELETE /v1/outbound/telephony */
+    public function deleteV1OutboundTelephony(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/outbound/telephony', $o);
+    }
+
+    /** DELETE /v1/outbound/voice-clips/{id} */
+    public function deleteV1OutboundVoiceClipsById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/outbound/voice-clips/{id}', $o);
+    }
+
+    /** DELETE /v1/page-sites/{id} - Delete the site (its pages stay, unassigned) and stop serving its domain */
+    public function deleteV1PageSitesById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/page-sites/{id}', $o);
+    }
+
+    /** DELETE /v1/page-sites/{id}/domain */
+    public function deleteV1PageSitesByIdDomain(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/page-sites/{id}/domain', $o);
+    }
+
     /** DELETE /v1/postal-addresses/{id} - Delete an address; lists that used it print the workspace address again */
     public function deleteV1PostalAddressesById(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/postal-addresses/{id}', $o);
+    }
+
+    /** DELETE /v1/profile-filters/{id} */
+    public function deleteV1ProfileFiltersById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/profile-filters/{id}', $o);
     }
 
     /** DELETE /v1/profiles/by/{idType}/{value} - Delete a profile addressed by any identifier */
@@ -914,6 +1136,12 @@ trait Operations
     public function deleteV1ProfilesByIdEngagement(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/profiles/{id}/engagement', $o);
+    }
+
+    /** DELETE /v1/profiles/{id}/files/{fileId} */
+    public function deleteV1ProfilesByIdFilesByFileId(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/profiles/{id}/files/{fileId}', $o);
     }
 
     /** DELETE /v1/profiles/{id}/notes/{noteId} */
@@ -1018,10 +1246,22 @@ trait Operations
         return $this->request('DELETE', '/v1/segments/{id}', $o);
     }
 
+    /** DELETE /v1/segments/{id}/members - Remove contacts from a hand-picked segment by profile id or email */
+    public function deleteV1SegmentsByIdMembers(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/segments/{id}/members', $o);
+    }
+
     /** DELETE /v1/sender-pools/{id} */
     public function deleteV1SenderPoolsById(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/sender-pools/{id}', $o);
+    }
+
+    /** DELETE /v1/senders/{id}/signing/{kind} */
+    public function deleteV1SendersByIdSigningByKind(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/senders/{id}/signing/{kind}', $o);
     }
 
     /** DELETE /v1/sending-domains/{id} - Delete a sending domain (refused while senders still use it) */
@@ -1036,6 +1276,12 @@ trait Operations
         return $this->request('DELETE', '/v1/send-options/{sourceKind}/{sourceId}', $o);
     }
 
+    /** DELETE /v1/shared-object-schemas/{id} - Stop sharing (only from the workspace that published it; installed copies stay) */
+    public function deleteV1SharedObjectSchemasById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/shared-object-schemas/{id}', $o);
+    }
+
     /** DELETE /v1/shares/{type}/{id}/{userId} - Stop sharing with one member; when the last share goes the resource is open again */
     public function deleteV1SharesByTypeByIdByUserId(array $o = []): mixed
     {
@@ -1048,10 +1294,28 @@ trait Operations
         return $this->request('DELETE', '/v1/siem', $o);
     }
 
+    /** DELETE /v1/site-messages/{id} */
+    public function deleteV1SiteMessagesById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/site-messages/{id}', $o);
+    }
+
     /** DELETE /v1/sites/{id} - Revokes the site key */
     public function deleteV1SitesById(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/sites/{id}', $o);
+    }
+
+    /** DELETE /v1/slack/installs/{id} - Remove a Slack workspace and delete its token */
+    public function deleteV1SlackInstallsById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/slack/installs/{id}', $o);
+    }
+
+    /** DELETE /v1/slack/templates/{id} - Delete a Slack message template */
+    public function deleteV1SlackTemplatesById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/slack/templates/{id}', $o);
     }
 
     /** DELETE /v1/sms/canned-replies/{id} */
@@ -1084,10 +1348,22 @@ trait Operations
         return $this->request('DELETE', '/v1/snippets/{id}', $o);
     }
 
+    /** DELETE /v1/social/accounts/{id} - Disconnect an account and delete its token */
+    public function deleteV1SocialAccountsById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/social/accounts/{id}', $o);
+    }
+
     /** DELETE /v1/soft-bounce-allowlist/{id} */
     public function deleteV1SoftBounceAllowlistById(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/soft-bounce-allowlist/{id}', $o);
+    }
+
+    /** DELETE /v1/sql-sources/{id} */
+    public function deleteV1SqlSourcesById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/sql-sources/{id}', $o);
     }
 
     /** DELETE /v1/sso */
@@ -1198,6 +1474,12 @@ trait Operations
         return $this->request('DELETE', '/v1/transactional/definitions/{id}', $o);
     }
 
+    /** DELETE /v1/transactional/metadata-fields/{name} - Stop showing a metadata key in the log; messages keep their metadata */
+    public function deleteV1TransactionalMetadataFieldsByName(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/transactional/metadata-fields/{name}', $o);
+    }
+
     /** DELETE /v1/transactional/tags/{tag} - Remove a tag from every message that carries it */
     public function deleteV1TransactionalTagsByTag(array $o = []): mixed
     {
@@ -1228,6 +1510,12 @@ trait Operations
         return $this->request('DELETE', '/v1/web-feeds/{id}', $o);
     }
 
+    /** DELETE /v1/webhooks/endpoints - Delete every webhook subscription in the workspace (pending deliveries are cancelled) */
+    public function deleteV1WebhooksEndpoints(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/webhooks/endpoints', $o);
+    }
+
     /** DELETE /v1/webhooks/endpoints/{id} */
     public function deleteV1WebhooksEndpointsById(array $o = []): mixed
     {
@@ -1250,6 +1538,18 @@ trait Operations
     public function deleteV1WhatsappTemplatesById(array $o = []): mixed
     {
         return $this->request('DELETE', '/v1/whatsapp/templates/{id}', $o);
+    }
+
+    /** DELETE /v1/workflow-custom-types/{id} */
+    public function deleteV1WorkflowCustomTypesById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/workflow-custom-types/{id}', $o);
+    }
+
+    /** DELETE /v1/workflows/{id} - Delete a draft or archived journey for good (versions and history go with it); archive a live one first */
+    public function deleteV1WorkflowsById(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/v1/workflows/{id}', $o);
     }
 
     /** DELETE /v1/workflows/{id}/ab */
@@ -1300,6 +1600,18 @@ trait Operations
         return $this->request('DELETE', '/v1/workspaces/current/schedule-for-removal', $o);
     }
 
+    /** DELETE /wallet/apple/{ws}/v1/devices/{device}/registrations/{passType}/{serial} */
+    public function deleteWalletAppleByWsV1DevicesByDeviceRegistrationsByPassTypeBySerial(array $o = []): mixed
+    {
+        return $this->request('DELETE', '/wallet/apple/{ws}/v1/devices/{device}/registrations/{passType}/{serial}', $o);
+    }
+
+    /** GET /book/{ws}/{slug} - Hosted booking page */
+    public function getBookByWsBySlug(array $o = []): mixed
+    {
+        return $this->request('GET', '/book/{ws}/{slug}', $o);
+    }
+
     /** GET /client/geofences - Active geofences the app should monitor (Klaviyo JSON:API list) */
     public function getClientGeofences(array $o = []): mixed
     {
@@ -1310,6 +1622,18 @@ trait Operations
     public function getClientInAppMessages(array $o = []): mixed
     {
         return $this->request('GET', '/client/in-app-messages', $o);
+    }
+
+    /** GET /client/in-app-trackers - Active tracker components for the contact (journey tracker steps) */
+    public function getClientInAppTrackers(array $o = []): mixed
+    {
+        return $this->request('GET', '/client/in-app-trackers', $o);
+    }
+
+    /** GET /client/inbox - The contact's inbox, newest first, with the unread count */
+    public function getClientInbox(array $o = []): mixed
+    {
+        return $this->request('GET', '/client/inbox', $o);
     }
 
     /** GET /client/push-config - The workspace's VAPID public key, for browsers subscribing to web push */
@@ -1336,6 +1660,12 @@ trait Operations
         return $this->request('GET', '/e/results/{ws}/{id}', $o);
     }
 
+    /** GET /e/s/{ws}/{token} - Anonymous survey link: a blank form (never earlier answers or results) */
+    public function getESByWsByToken(array $o = []): mixed
+    {
+        return $this->request('GET', '/e/s/{ws}/{token}', $o);
+    }
+
     /** GET /e/survey/{ws}/{id} - Hosted survey page */
     public function getESurveyByWsById(array $o = []): mixed
     {
@@ -1354,16 +1684,64 @@ trait Operations
         return $this->request('GET', '/e/widget.js', $o);
     }
 
+    /** GET /f/{ws}/{id}/{*} - A not-indexable or private library file: private files need a valid signed link (?t=); always answered with noindex */
+    public function getFByWsByIdWildcard(array $o = []): mixed
+    {
+        return $this->request('GET', '/f/{ws}/{id}/{*}', $o);
+    }
+
+    /** GET /feeds/reviews/{token} - Google Shopping product reviews feed (the signed link from /v1/review-feeds/google) */
+    public function getFeedsReviewsByToken(array $o = []): mixed
+    {
+        return $this->request('GET', '/feeds/reviews/{token}', $o);
+    }
+
     /** GET /healthz */
     public function getHealthz(array $o = []): mixed
     {
         return $this->request('GET', '/healthz', $o);
     }
 
+    /** GET /hub/{ws} - The customer hub page (or its sign-in form) */
+    public function getHubByWs(array $o = []): mixed
+    {
+        return $this->request('GET', '/hub/{ws}', $o);
+    }
+
+    /** GET /hub/{ws}/api/me - Everything the signed-in shopper sees */
+    public function getHubByWsApiMe(array $o = []): mixed
+    {
+        return $this->request('GET', '/hub/{ws}/api/me', $o);
+    }
+
+    /** GET /hub/{ws}/auth/{token} */
+    public function getHubByWsAuthByToken(array $o = []): mixed
+    {
+        return $this->request('GET', '/hub/{ws}/auth/{token}', $o);
+    }
+
+    /** GET /ical/{ws}/{file} - The ICS feed itself (token in the URL). Titles and times only, never message bodies */
+    public function getIcalByWsByFile(array $o = []): mixed
+    {
+        return $this->request('GET', '/ical/{ws}/{file}', $o);
+    }
+
     /** GET /ingest/v1/forms */
     public function getIngestV1Forms(array $o = []): mixed
     {
         return $this->request('GET', '/ingest/v1/forms', $o);
+    }
+
+    /** GET /ingest/v1/forms/{id}/companies - Company name suggestions for a form company field (names only) */
+    public function getIngestV1FormsByIdCompanies(array $o = []): mixed
+    {
+        return $this->request('GET', '/ingest/v1/forms/{id}/companies', $o);
+    }
+
+    /** GET /ingest/v1/forms/visitor - Audience flags for on-site targeting: booleans only (known, subscriber, membership of each targeted list/segment, targeted countries) */
+    public function getIngestV1FormsVisitor(array $o = []): mixed
+    {
+        return $this->request('GET', '/ingest/v1/forms/visitor', $o);
     }
 
     /** GET /ingest/v1/reviews - Published reviews of one product, newest first */
@@ -1376,6 +1754,12 @@ trait Operations
     public function getIngestV1ReviewValuesReports(array $o = []): mixed
     {
         return $this->request('GET', '/ingest/v1/review-values-reports', $o);
+    }
+
+    /** GET /ingest/v1/site-messages - Site messages for this visitor: published ones, plus those a journey queued for them */
+    public function getIngestV1SiteMessages(array $o = []): mixed
+    {
+        return $this->request('GET', '/ingest/v1/site-messages', $o);
     }
 
     /** GET /ingest/v1/slots - Slot content for the visitor: identified profiles get their segment rules */
@@ -1408,6 +1792,18 @@ trait Operations
         return $this->request('GET', '/integrations/shopify/callback', $o);
     }
 
+    /** GET /integrations/slack/callback */
+    public function getIntegrationsSlackCallback(array $o = []): mixed
+    {
+        return $this->request('GET', '/integrations/slack/callback', $o);
+    }
+
+    /** GET /integrations/social/{platform}/callback */
+    public function getIntegrationsSocialByPlatformCallback(array $o = []): mixed
+    {
+        return $this->request('GET', '/integrations/social/{platform}/callback', $o);
+    }
+
     /** GET /integrations/x/callback */
     public function getIntegrationsXCallback(array $o = []): mixed
     {
@@ -1418,6 +1814,18 @@ trait Operations
     public function getLCWildcard(array $o = []): mixed
     {
         return $this->request('GET', '/l/c/{*}', $o);
+    }
+
+    /** GET /loyalty/v1/program - Programme name, tiers and rewards for a storefront widget (no member data) */
+    public function getLoyaltyV1Program(array $o = []): mixed
+    {
+        return $this->request('GET', '/loyalty/v1/program', $o);
+    }
+
+    /** GET /mcp - Not offered: the hosted MCP server is stateless (POST only). */
+    public function getMcp(array $o = []): mixed
+    {
+        return $this->request('GET', '/mcp', $o);
     }
 
     /** GET /metrics - Prometheus text exposition; bearer METRICS_TOKEN (404 when unset) */
@@ -1492,6 +1900,12 @@ trait Operations
         return $this->request('GET', '/p/f/{ref}', $o);
     }
 
+    /** GET /p/f/{ref}/companies - Company suggestions for a hosted form */
+    public function getPFByRefCompanies(array $o = []): mixed
+    {
+        return $this->request('GET', '/p/f/{ref}/companies', $o);
+    }
+
     /** GET /p/gift/{ws}/{code} - Gift redeem page */
     public function getPGiftByWsByCode(array $o = []): mixed
     {
@@ -1508,6 +1922,12 @@ trait Operations
     public function getPLByRef(array $o = []): mixed
     {
         return $this->request('GET', '/p/l/{ref}', $o);
+    }
+
+    /** GET /p/l/{ref}/companies - Company suggestions for the form on a hosted page */
+    public function getPLByRefCompanies(array $o = []): mixed
+    {
+        return $this->request('GET', '/p/l/{ref}/companies', $o);
     }
 
     /** GET /p/lists/{ws} - Public lists directory: pick lists and subscribe */
@@ -1618,16 +2038,40 @@ trait Operations
         return $this->request('GET', '/p/ng/{ws}/{pub}/widget.js', $o);
     }
 
-    /** GET /p/s/{token} - Shared read-only outline of a sequence */
+    /** GET /p/robots/{ws} - robots.txt for a site on its custom domain */
+    public function getPRobotsByWs(array $o = []): mixed
+    {
+        return $this->request('GET', '/p/robots/{ws}', $o);
+    }
+
+    /** GET /p/s/{token} - Public share link of a campaign report: the hosted copy, tracked */
     public function getPSByToken(array $o = []): mixed
     {
         return $this->request('GET', '/p/s/{token}', $o);
+    }
+
+    /** GET /p/s/{token}/c - A click on a link of the shared copy: recorded, then redirected (only to a link the copy really contains) */
+    public function getPSByTokenC(array $o = []): mixed
+    {
+        return $this->request('GET', '/p/s/{token}/c', $o);
+    }
+
+    /** GET /p/seq/{token} - Shared read-only outline of a sequence */
+    public function getPSeqByToken(array $o = []): mixed
+    {
+        return $this->request('GET', '/p/seq/{token}', $o);
     }
 
     /** GET /p/signin/{ws} - Sign in to read or manage a subscription (emails a link) */
     public function getPSigninByWs(array $o = []): mixed
     {
         return $this->request('GET', '/p/signin/{ws}', $o);
+    }
+
+    /** GET /p/sitemap/{ws} - sitemap.xml for hosted pages (one site with `site`) */
+    public function getPSitemapByWs(array $o = []): mixed
+    {
+        return $this->request('GET', '/p/sitemap/{ws}', $o);
     }
 
     /** GET /p/sr/{ws}/{token} - Shareable sponsor report (impressions, opens, clicks, CTR) */
@@ -1762,16 +2206,22 @@ trait Operations
         return $this->request('GET', '/v1/account/summary', $o);
     }
 
-    /** GET /v1/activity - Recent workspace activity feed built from the audit log */
+    /** GET /v1/activity - Recent workspace activity feed built from the audit log; filter by target type, action and person */
     public function getV1Activity(array $o = []): mixed
     {
         return $this->request('GET', '/v1/activity', $o);
     }
 
-    /** GET /v1/activity/highlights - Marketer feed: recently finished sends, daily sign-ups over the last 14 days and the audience size milestone reached */
+    /** GET /v1/activity/highlights - Marketer feed over the chosen window: finished sends, each sign-up one by one, daily list growth and the audience milestone reached; paged b */
     public function getV1ActivityHighlights(array $o = []): mixed
     {
         return $this->request('GET', '/v1/activity/highlights', $o);
+    }
+
+    /** GET /v1/activity/people - Activity of everyone in the workspace; filter by type, name, person and deleted people */
+    public function getV1ActivityPeople(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/activity/people', $o);
     }
 
     /** GET /v1/ads/accounts - Connected ad accounts */
@@ -1792,6 +2242,18 @@ trait Operations
         return $this->request('GET', '/v1/ads/accounts/{id}/conversions/log', $o);
     }
 
+    /** GET /v1/ads/accounts/{id}/lead-forms - Lead-ad forms on the account's Facebook page, with their questions and consent checkboxes */
+    public function getV1AdsAccountsByIdLeadForms(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ads/accounts/{id}/lead-forms', $o);
+    }
+
+    /** GET /v1/ads/accounts/{id}/objects - Campaigns, ad sets and ads on the platform with last-30-day reach, spend and ROAS */
+    public function getV1AdsAccountsByIdObjects(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ads/accounts/{id}/objects', $o);
+    }
+
     /** GET /v1/ads/audiences - Segment -> ad audience syncs */
     public function getV1AdsAudiences(array $o = []): mixed
     {
@@ -1808,6 +2270,30 @@ trait Operations
     public function getV1AdsAudiencesByIdRuns(array $o = []): mixed
     {
         return $this->request('GET', '/v1/ads/audiences/{id}/runs', $o);
+    }
+
+    /** GET /v1/ads/campaigns - Campaigns built here */
+    public function getV1AdsCampaigns(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ads/campaigns', $o);
+    }
+
+    /** GET /v1/ads/campaigns/{id} - One campaign */
+    public function getV1AdsCampaignsById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ads/campaigns/{id}', $o);
+    }
+
+    /** GET /v1/ads/lead-syncs - Lead-ad forms synced into forms */
+    public function getV1AdsLeadSyncs(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ads/lead-syncs', $o);
+    }
+
+    /** GET /v1/ads/lead-syncs/{id}/imports - Leads imported by a sync */
+    public function getV1AdsLeadSyncsByIdImports(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ads/lead-syncs/{id}/imports', $o);
     }
 
     /** GET /v1/ads/oauth/apps - Which ad platforms can be connected by sign-in on this install */
@@ -1858,6 +2344,12 @@ trait Operations
         return $this->request('GET', '/v1/agency/clients/{workspaceId}/modules', $o);
     }
 
+    /** GET /v1/agency/clients/{workspaceId}/snippet - The client's website snippet (site key) and the state of its integrations */
+    public function getV1AgencyClientsByWorkspaceIdSnippet(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/agency/clients/{workspaceId}/snippet', $o);
+    }
+
     /** GET /v1/agency/groups */
     public function getV1AgencyGroups(array $o = []): mixed
     {
@@ -1886,6 +2378,84 @@ trait Operations
     public function getV1AgencyOutbound(array $o = []): mixed
     {
         return $this->request('GET', '/v1/agency/outbound', $o);
+    }
+
+    /** GET /v1/ai-agents */
+    public function getV1AiAgents(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ai-agents', $o);
+    }
+
+    /** GET /v1/ai-agents/{id} */
+    public function getV1AiAgentsById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ai-agents/{id}', $o);
+    }
+
+    /** GET /v1/ai-agents/{id}/analytics/summary */
+    public function getV1AiAgentsByIdAnalyticsSummary(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ai-agents/{id}/analytics/summary', $o);
+    }
+
+    /** GET /v1/ai-agents/{id}/guidances */
+    public function getV1AiAgentsByIdGuidances(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ai-agents/{id}/guidances', $o);
+    }
+
+    /** GET /v1/ai-agents/{id}/guidances/{guidanceId} */
+    public function getV1AiAgentsByIdGuidancesByGuidanceId(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ai-agents/{id}/guidances/{guidanceId}', $o);
+    }
+
+    /** GET /v1/ai-agents/{id}/leads */
+    public function getV1AiAgentsByIdLeads(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ai-agents/{id}/leads', $o);
+    }
+
+    /** GET /v1/ai-agents/{id}/leads/{profileId}/research - What the agent knew about a lead when it wrote to them, and every proposal it made */
+    public function getV1AiAgentsByIdLeadsByProfileIdResearch(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ai-agents/{id}/leads/{profileId}/research', $o);
+    }
+
+    /** GET /v1/ai-agents/{id}/opportunities - Where the leads a sales agent emailed stand now */
+    public function getV1AiAgentsByIdOpportunities(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ai-agents/{id}/opportunities', $o);
+    }
+
+    /** GET /v1/ai-agents/items */
+    public function getV1AiAgentsItems(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ai-agents/items', $o);
+    }
+
+    /** GET /v1/ai-agents/items/{id} */
+    public function getV1AiAgentsItemsById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ai-agents/items/{id}', $o);
+    }
+
+    /** GET /v1/ai-agents/status - Whether agents can run: operator switch and workspace AI opt-in */
+    public function getV1AiAgentsStatus(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ai-agents/status', $o);
+    }
+
+    /** GET /v1/ai/flow-builds - History of AI journey builds, newest first */
+    public function getV1AiFlowBuilds(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ai/flow-builds', $o);
+    }
+
+    /** GET /v1/ai/flow-builds/{id} */
+    public function getV1AiFlowBuildsById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/ai/flow-builds/{id}', $o);
     }
 
     /** GET /v1/ai/jobs */
@@ -1966,6 +2536,12 @@ trait Operations
         return $this->request('GET', '/v1/analytics/content-slots', $o);
     }
 
+    /** GET /v1/analytics/conversion-folders - Conversions grouped by folder, with each conversion's count and value in the range */
+    public function getV1AnalyticsConversionFolders(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/analytics/conversion-folders', $o);
+    }
+
     /** GET /v1/analytics/conversion-labels */
     public function getV1AnalyticsConversionLabels(array $o = []): mixed
     {
@@ -1996,7 +2572,7 @@ trait Operations
         return $this->request('GET', '/v1/analytics/conversions', $o);
     }
 
-    /** GET /v1/analytics/conversions/{id} - One conversion with the touches credited for it */
+    /** GET /v1/analytics/conversions/{id} - One conversion with the touches credited for it, the event that triggered it and the activity around it */
     public function getV1AnalyticsConversionsById(array $o = []): mixed
     {
         return $this->request('GET', '/v1/analytics/conversions/{id}', $o);
@@ -2018,6 +2594,12 @@ trait Operations
     public function getV1AnalyticsDashboardsById(array $o = []): mixed
     {
         return $this->request('GET', '/v1/analytics/dashboards/{id}', $o);
+    }
+
+    /** GET /v1/analytics/dashboards/{id}/definition/export - The dashboard and its reports as portable JSON (no schedules, recipients or sharing) */
+    public function getV1AnalyticsDashboardsByIdDefinitionExport(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/analytics/dashboards/{id}/definition/export', $o);
     }
 
     /** GET /v1/analytics/dashboards/{id}/export - Every widget as one CSV */
@@ -2062,6 +2644,12 @@ trait Operations
         return $this->request('GET', '/v1/analytics/forms', $o);
     }
 
+    /** GET /v1/analytics/landing-pages - Landing page report: visits, unique visitors, sign-ups and conversion rate per page over a date range */
+    public function getV1AnalyticsLandingPages(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/analytics/landing-pages', $o);
+    }
+
     /** GET /v1/analytics/messages */
     public function getV1AnalyticsMessages(array $o = []): mixed
     {
@@ -2078,6 +2666,12 @@ trait Operations
     public function getV1AnalyticsPredictionsStatus(array $o = []): mixed
     {
         return $this->request('GET', '/v1/analytics/predictions/status', $o);
+    }
+
+    /** GET /v1/analytics/record-sources - Report builder record sources (contacts, companies, form results, page hits, asset downloads, workflow log, point log, frequency rules) and  */
+    public function getV1AnalyticsRecordSources(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/analytics/record-sources', $o);
     }
 
     /** GET /v1/analytics/reports - Saved reports; ?archived=true lists the archived ones */
@@ -2158,6 +2752,12 @@ trait Operations
         return $this->request('GET', '/v1/analytics/sources/{kind}/{id}/summary', $o);
     }
 
+    /** GET /v1/analytics/surveys/{id}/report - Survey report: responses and answer breakdown per question, optionally for the members of one list or segment */
+    public function getV1AnalyticsSurveysByIdReport(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/analytics/surveys/{id}/report', $o);
+    }
+
     /** GET /v1/analytics/time-to-convert */
     public function getV1AnalyticsTimeToConvert(array $o = []): mixed
     {
@@ -2216,6 +2816,18 @@ trait Operations
     public function getV1AssetsByPath(array $o = []): mixed
     {
         return $this->request('GET', '/v1/assets/by-path', $o);
+    }
+
+    /** GET /v1/association-labels */
+    public function getV1AssociationLabels(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/association-labels', $o);
+    }
+
+    /** GET /v1/associations/{type}/{id} - Everything a profile or object record is associated with, with labels */
+    public function getV1AssociationsByTypeById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/associations/{type}/{id}', $o);
     }
 
     /** GET /v1/attributes - Attribute catalogue for the segment builder: standard fields, observed custom attribute keys + inferred types, event names with property key */
@@ -2288,6 +2900,42 @@ trait Operations
     public function getV1AuthorizedAppsByClientId(array $o = []): mixed
     {
         return $this->request('GET', '/v1/authorized-apps/{clientId}', $o);
+    }
+
+    /** GET /v1/auth/signup-info - Whether sign-up is open, which social sign-in buttons to show */
+    public function getV1AuthSignupInfo(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/auth/signup-info', $o);
+    }
+
+    /** GET /v1/auth/social/{provider}/callback - Provider callback: signs in, links by verified email, or creates an account */
+    public function getV1AuthSocialByProviderCallback(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/auth/social/{provider}/callback', $o);
+    }
+
+    /** GET /v1/auth/social/{provider}/start - Start Google or GitHub sign-in (redirects to the provider) */
+    public function getV1AuthSocialByProviderStart(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/auth/social/{provider}/start', $o);
+    }
+
+    /** GET /v1/batches */
+    public function getV1Batches(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/batches', $o);
+    }
+
+    /** GET /v1/batches/{id} */
+    public function getV1BatchesById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/batches/{id}', $o);
+    }
+
+    /** GET /v1/batches/{id}/results - Each call's status and response body, in call order (page with `after`) */
+    public function getV1BatchesByIdResults(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/batches/{id}/results', $o);
     }
 
     /** GET /v1/benchmarks - Peer benchmarks (overview): your last 90 days against peer percentiles, falling back to a labelled static reference table */
@@ -2452,6 +3100,12 @@ trait Operations
         return $this->request('GET', '/v1/calendar', $o);
     }
 
+    /** GET /v1/calendar-feeds */
+    public function getV1CalendarFeeds(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/calendar-feeds', $o);
+    }
+
     /** GET /v1/calendar/mine - My own calendar entries */
     public function getV1CalendarMine(array $o = []): mixed
     {
@@ -2482,6 +3136,24 @@ trait Operations
         return $this->request('GET', '/v1/campaign-folders/{id}/assets/{assetType}', $o);
     }
 
+    /** GET /v1/campaign-folders/{id}/budgets */
+    public function getV1CampaignFoldersByIdBudgets(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/campaign-folders/{id}/budgets', $o);
+    }
+
+    /** GET /v1/campaign-folders/{id}/report - Roll-up of everything filed in a campaign folder: contacts reached (first touch, last touch, influenced), message, form and page metrics, an */
+    public function getV1CampaignFoldersByIdReport(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/campaign-folders/{id}/report', $o);
+    }
+
+    /** GET /v1/campaign-messages - Every campaign message in the workspace, filtered by campaign, channel, status, text and updated time */
+    public function getV1CampaignMessages(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/campaign-messages', $o);
+    }
+
     /** GET /v1/campaign-messages/{id}/tags */
     public function getV1CampaignMessagesByIdTags(array $o = []): mixed
     {
@@ -2506,6 +3178,18 @@ trait Operations
         return $this->request('GET', '/v1/campaigns/{id}/ab-report', $o);
     }
 
+    /** GET /v1/campaigns/{id}/audiences */
+    public function getV1CampaignsByIdAudiences(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/campaigns/{id}/audiences', $o);
+    }
+
+    /** GET /v1/campaigns/{id}/audiences/{audienceId} */
+    public function getV1CampaignsByIdAudiencesByAudienceId(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/campaigns/{id}/audiences/{audienceId}', $o);
+    }
+
     /** GET /v1/campaigns/{id}/checklist */
     public function getV1CampaignsByIdChecklist(array $o = []): mixed
     {
@@ -2522,6 +3206,12 @@ trait Operations
     public function getV1CampaignsByIdContentCheck(array $o = []): mixed
     {
         return $this->request('GET', '/v1/campaigns/{id}/content-check', $o);
+    }
+
+    /** GET /v1/campaigns/{id}/drafts */
+    public function getV1CampaignsByIdDrafts(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/campaigns/{id}/drafts', $o);
     }
 
     /** GET /v1/campaigns/{id}/feedback */
@@ -2560,6 +3250,24 @@ trait Operations
         return $this->request('GET', '/v1/campaigns/{id}/messages/{messageId}', $o);
     }
 
+    /** GET /v1/campaigns/{id}/messages/{messageId}/variants */
+    public function getV1CampaignsByIdMessagesByMessageIdVariants(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/campaigns/{id}/messages/{messageId}/variants', $o);
+    }
+
+    /** GET /v1/campaigns/{id}/postcard */
+    public function getV1CampaignsByIdPostcard(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/campaigns/{id}/postcard', $o);
+    }
+
+    /** GET /v1/campaigns/{id}/postcard/report */
+    public function getV1CampaignsByIdPostcardReport(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/campaigns/{id}/postcard/report', $o);
+    }
+
     /** GET /v1/campaigns/{id}/push - A push campaign's title, body and extras (image, link, data, badge, sound, TTL, per-platform overrides) */
     public function getV1CampaignsByIdPush(array $o = []): mixed
     {
@@ -2576,6 +3284,12 @@ trait Operations
     public function getV1CampaignsByIdRecipientEstimationsByJobId(array $o = []): mixed
     {
         return $this->request('GET', '/v1/campaigns/{id}/recipient-estimations/{jobId}', $o);
+    }
+
+    /** GET /v1/campaigns/{id}/recipient-estimations/latest - The most recent recipient estimation of this campaign */
+    public function getV1CampaignsByIdRecipientEstimationsLatest(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/campaigns/{id}/recipient-estimations/latest', $o);
     }
 
     /** GET /v1/campaigns/{id}/recipients */
@@ -2668,7 +3382,7 @@ trait Operations
         return $this->request('GET', '/v1/campaigns/{id}/variants/{key}', $o);
     }
 
-    /** GET /v1/catalog/bulk-jobs */
+    /** GET /v1/catalog/bulk-jobs - Filter by resource, op and status; page with nextCursor */
     public function getV1CatalogBulkJobs(array $o = []): mixed
     {
         return $this->request('GET', '/v1/catalog/bulk-jobs', $o);
@@ -2680,7 +3394,7 @@ trait Operations
         return $this->request('GET', '/v1/catalog/bulk-jobs/{id}', $o);
     }
 
-    /** GET /v1/catalog/categories */
+    /** GET /v1/catalog/categories - Filter by ids, name (contains) or item; page with nextCursor */
     public function getV1CatalogCategories(array $o = []): mixed
     {
         return $this->request('GET', '/v1/catalog/categories', $o);
@@ -2722,7 +3436,7 @@ trait Operations
         return $this->request('GET', '/v1/catalog/items/{id}', $o);
     }
 
-    /** GET /v1/catalog/items/{id}/categories */
+    /** GET /v1/catalog/items/{id}/categories - The category objects this item is in */
     public function getV1CatalogItemsByIdCategories(array $o = []): mixed
     {
         return $this->request('GET', '/v1/catalog/items/{id}/categories', $o);
@@ -2746,7 +3460,7 @@ trait Operations
         return $this->request('GET', '/v1/catalog/items/{id}/variants', $o);
     }
 
-    /** GET /v1/catalog/variants */
+    /** GET /v1/catalog/variants - Filter by ids, sku, title, published or item; page with nextCursor */
     public function getV1CatalogVariants(array $o = []): mixed
     {
         return $this->request('GET', '/v1/catalog/variants', $o);
@@ -2756,12 +3470,6 @@ trait Operations
     public function getV1CatalogVariantsById(array $o = []): mixed
     {
         return $this->request('GET', '/v1/catalog/variants/{id}', $o);
-    }
-
-    /** GET /v1/client-previews/{externalId} */
-    public function getV1ClientPreviewsByExternalId(array $o = []): mixed
-    {
-        return $this->request('GET', '/v1/client-previews/{externalId}', $o);
     }
 
     /** GET /v1/collections */
@@ -2932,6 +3640,12 @@ trait Operations
         return $this->request('GET', '/v1/commerce/stores/{storeId}/stats', $o);
     }
 
+    /** GET /v1/compliance/export-retention - Days an export file is kept before it is deleted */
+    public function getV1ComplianceExportRetention(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/compliance/export-retention', $o);
+    }
+
     /** GET /v1/compliance/gpc - Whether a browser Global Privacy Control / Do Not Track signal counts as a tracking opt-out (default on) */
     public function getV1ComplianceGpc(array $o = []): mixed
     {
@@ -2954,6 +3668,12 @@ trait Operations
     public function getV1ComplianceTrashRetention(array $o = []): mixed
     {
         return $this->request('GET', '/v1/compliance/trash-retention', $o);
+    }
+
+    /** GET /v1/compliance/unconfirmed-purge - Days after which contacts that never confirmed an opt-in are deleted (null = off) */
+    public function getV1ComplianceUnconfirmedPurge(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/compliance/unconfirmed-purge', $o);
     }
 
     /** GET /v1/compliance/unsubscribe-purge - Days after which an unsubscribed contact is erased (null = never) */
@@ -3010,6 +3730,12 @@ trait Operations
         return $this->request('GET', '/v1/content-slots', $o);
     }
 
+    /** GET /v1/content-slots/pushes - Live content journeys pushed into individual visitors' slots */
+    public function getV1ContentSlotsPushes(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/content-slots/pushes', $o);
+    }
+
     /** GET /v1/conversations - Replies to marketing campaigns */
     public function getV1Conversations(array $o = []): mixed
     {
@@ -3032,6 +3758,12 @@ trait Operations
     public function getV1ConversationsByIdMessagesByMessageId(array $o = []): mixed
     {
         return $this->request('GET', '/v1/conversations/{id}/messages/{messageId}', $o);
+    }
+
+    /** GET /v1/coupon-codes - Codes across every pool: by profile, status, expiry range */
+    public function getV1CouponCodes(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/coupon-codes', $o);
     }
 
     /** GET /v1/coupon-pools */
@@ -3202,6 +3934,12 @@ trait Operations
         return $this->request('GET', '/v1/deliverability/rdns', $o);
     }
 
+    /** GET /v1/deliverability/recommendations */
+    public function getV1DeliverabilityRecommendations(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/deliverability/recommendations', $o);
+    }
+
     /** GET /v1/deliverability/reputation */
     public function getV1DeliverabilityReputation(array $o = []): mixed
     {
@@ -3250,13 +3988,43 @@ trait Operations
         return $this->request('GET', '/v1/delivery/settings', $o);
     }
 
+    /** GET /v1/destinations */
+    public function getV1Destinations(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/destinations', $o);
+    }
+
+    /** GET /v1/destinations/{id} */
+    public function getV1DestinationsById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/destinations/{id}', $o);
+    }
+
+    /** GET /v1/destinations/{id}/deliveries - Recent deliveries with their status and last error */
+    public function getV1DestinationsByIdDeliveries(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/destinations/{id}/deliveries', $o);
+    }
+
     /** GET /v1/developer/requests - API request log for debugging: method, route, status and duration of authenticated calls, kept 30 days */
     public function getV1DeveloperRequests(array $o = []): mixed
     {
         return $this->request('GET', '/v1/developer/requests', $o);
     }
 
-    /** GET /v1/emails - Campaigns as one email list with state and channel filters */
+    /** GET /v1/do-not-contact - LinkedIn do-not-contact list (emails and phones are listed under suppressions) */
+    public function getV1DoNotContact(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/do-not-contact', $o);
+    }
+
+    /** GET /v1/do-not-contact/check */
+    public function getV1DoNotContactCheck(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/do-not-contact/check', $o);
+    }
+
+    /** GET /v1/emails - Campaigns as one email list: state, type, channel, created/updated/scheduled ranges, archived and sort */
     public function getV1Emails(array $o = []): mixed
     {
         return $this->request('GET', '/v1/emails', $o);
@@ -3268,16 +4036,64 @@ trait Operations
         return $this->request('GET', '/v1/emails/{id}/draft', $o);
     }
 
-    /** GET /v1/emails/statistics/histogram - Day-by-day sent, delivered, bounced, opened and clicked for one email */
+    /** GET /v1/emails/statistics/histogram - Sent, delivered, bounced, opened and clicked for one email per day, week or month between start and end */
     public function getV1EmailsStatisticsHistogram(array $o = []): mixed
     {
         return $this->request('GET', '/v1/emails/statistics/histogram', $o);
     }
 
-    /** GET /v1/emails/statistics/list - Totals for several emails at once (comma separated ids) */
+    /** GET /v1/emails/statistics/list - Totals for up to 50 emails (comma separated ids) in a date window, plus their sum */
     public function getV1EmailsStatisticsList(array $o = []): mixed
     {
         return $this->request('GET', '/v1/emails/statistics/list', $o);
+    }
+
+    /** GET /v1/embed-api/{token}/ai */
+    public function getV1EmbedApiByTokenAi(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/embed-api/{token}/ai', $o);
+    }
+
+    /** GET /v1/embed-api/{token}/deliveries */
+    public function getV1EmbedApiByTokenDeliveries(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/embed-api/{token}/deliveries', $o);
+    }
+
+    /** GET /v1/embed-api/{token}/journey */
+    public function getV1EmbedApiByTokenJourney(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/embed-api/{token}/journey', $o);
+    }
+
+    /** GET /v1/embed-api/{token}/sections - Saved sections to insert a copy of */
+    public function getV1EmbedApiByTokenSections(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/embed-api/{token}/sections', $o);
+    }
+
+    /** GET /v1/embed-api/{token}/seed-lists */
+    public function getV1EmbedApiByTokenSeedLists(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/embed-api/{token}/seed-lists', $o);
+    }
+
+    /** GET /v1/embed-api/{token}/template */
+    public function getV1EmbedApiByTokenTemplate(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/embed-api/{token}/template', $o);
+    }
+
+    /** GET /v1/embed-api/{token}/template/versions */
+    public function getV1EmbedApiByTokenTemplateVersions(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/embed-api/{token}/template/versions', $o);
+    }
+
+    /** GET /v1/embed-api/frame-policy - Internal: frame-ancestors for the web embed page, from the token in x-embed-token */
+    public function getV1EmbedApiFramePolicy(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/embed-api/frame-policy', $o);
     }
 
     /** GET /v1/event-definitions */
@@ -3298,7 +4114,7 @@ trait Operations
         return $this->request('GET', '/v1/event-definitions/{name}/usage', $o);
     }
 
-    /** GET /v1/events - Workspace-wide event list (filter by name, profile, time range, properties) */
+    /** GET /v1/events - Workspace-wide event list: filter by name, profile, time range, properties, journey or broadcast; sort by datetime; include=metric,profile */
     public function getV1Events(array $o = []): mixed
     {
         return $this->request('GET', '/v1/events', $o);
@@ -3308,6 +4124,18 @@ trait Operations
     public function getV1EventsById(array $o = []): mixed
     {
         return $this->request('GET', '/v1/events/{id}', $o);
+    }
+
+    /** GET /v1/events/export - The same filters as GET /v1/events, as CSV text (first 50,000 events); POST /v1/events/export-jobs exports every match as a file */
+    public function getV1EventsExport(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/events/export', $o);
+    }
+
+    /** GET /v1/events/settings - Whether server-side event ingest is on, and the custom field used as each person's primary key */
+    public function getV1EventsSettings(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/events/settings', $o);
     }
 
     /** GET /v1/experiments */
@@ -3352,7 +4180,7 @@ trait Operations
         return $this->request('GET', '/v1/files', $o);
     }
 
-    /** GET /v1/forms */
+    /** GET /v1/forms - Filter by name, status, kind, ad id and created/updated ranges; sort by created, updated or name */
     public function getV1Forms(array $o = []): mixed
     {
         return $this->request('GET', '/v1/forms', $o);
@@ -3386,6 +4214,12 @@ trait Operations
     public function getV1FormsByIdSubmissionsBySubmissionId(array $o = []): mixed
     {
         return $this->request('GET', '/v1/forms/{id}/submissions/{submissionId}', $o);
+    }
+
+    /** GET /v1/forms/{id}/submissions/export.csv - Every submission as CSV, oldest first (one column per field) */
+    public function getV1FormsByIdSubmissionsExportCsv(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/forms/{id}/submissions/export.csv', $o);
     }
 
     /** GET /v1/forms/{id}/summary */
@@ -3496,6 +4330,12 @@ trait Operations
         return $this->request('GET', '/v1/hooks/triggers/{trigger}/sample', $o);
     }
 
+    /** GET /v1/identifier-blocks - Identifiers of suppressed-and-deleted contacts (values are kept hashed only) */
+    public function getV1IdentifierBlocks(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/identifier-blocks', $o);
+    }
+
     /** GET /v1/id-mappings - Old ids (from HubSpot, for example) and the lists or journeys they became */
     public function getV1IdMappings(array $o = []): mixed
     {
@@ -3542,6 +4382,12 @@ trait Operations
     public function getV1ImportSchedules(array $o = []): mixed
     {
         return $this->request('GET', '/v1/import-schedules', $o);
+    }
+
+    /** GET /v1/in-app-components - Developer-defined in-app components */
+    public function getV1InAppComponents(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/in-app-components', $o);
     }
 
     /** GET /v1/in-app-messages - In-app messages */
@@ -3604,6 +4450,12 @@ trait Operations
         return $this->request('GET', '/v1/inbound/routes', $o);
     }
 
+    /** GET /v1/info/ip-addresses - Egress IP addresses to allowlist for webhooks and connectors; compare syncToken to detect changes */
+    public function getV1InfoIpAddresses(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/info/ip-addresses', $o);
+    }
+
     /** GET /v1/integrations/catalog - Declarative connectors available to connect */
     public function getV1IntegrationsCatalog(array $o = []): mixed
     {
@@ -3614,6 +4466,18 @@ trait Operations
     public function getV1IntegrationsConnections(array $o = []): mixed
     {
         return $this->request('GET', '/v1/integrations/connections', $o);
+    }
+
+    /** GET /v1/integrations/connections/{id}/crm/sources - Lists, reports, list views, campaigns or filters that can be imported */
+    public function getV1IntegrationsConnectionsByIdCrmSources(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/integrations/connections/{id}/crm/sources', $o);
+    }
+
+    /** GET /v1/integrations/connections/{id}/crm/users */
+    public function getV1IntegrationsConnectionsByIdCrmUsers(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/integrations/connections/{id}/crm/users', $o);
     }
 
     /** GET /v1/integrations/connections/{id}/declarative - Sync cursors, last error and the webhook URL + secret to paste into the vendor */
@@ -3632,6 +4496,42 @@ trait Operations
     public function getV1IntegrationsConnectionsByIdWebhookUrl(array $o = []): mixed
     {
         return $this->request('GET', '/v1/integrations/connections/{id}/webhook-url', $o);
+    }
+
+    /** GET /v1/integrations/crm-imports */
+    public function getV1IntegrationsCrmImports(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/integrations/crm-imports', $o);
+    }
+
+    /** GET /v1/integrations/crm-log - Per-record CRM sync log, newest first */
+    public function getV1IntegrationsCrmLog(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/integrations/crm-log', $o);
+    }
+
+    /** GET /v1/integrations/crm-settings - Workspace CRM settings (sync log retention) */
+    public function getV1IntegrationsCrmSettings(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/integrations/crm-settings', $o);
+    }
+
+    /** GET /v1/integrations/google/callback */
+    public function getV1IntegrationsGoogleCallback(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/integrations/google/callback', $o);
+    }
+
+    /** GET /v1/integrations/marketplace - Catalogue packages, whether each passes signature and review checks, and the installed version */
+    public function getV1IntegrationsMarketplace(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/integrations/marketplace', $o);
+    }
+
+    /** GET /v1/integrations/packages */
+    public function getV1IntegrationsPackages(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/integrations/packages', $o);
     }
 
     /** GET /v1/integrations/secrets - Secret names (values are never returned) */
@@ -3670,6 +4570,18 @@ trait Operations
         return $this->request('GET', '/v1/jobs/{id}/stream', $o);
     }
 
+    /** GET /v1/landing-page-clusters */
+    public function getV1LandingPageClusters(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/landing-page-clusters', $o);
+    }
+
+    /** GET /v1/landing-page-clusters/{id} */
+    public function getV1LandingPageClustersById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/landing-page-clusters/{id}', $o);
+    }
+
     /** GET /v1/landing-page-folders */
     public function getV1LandingPageFolders(array $o = []): mixed
     {
@@ -3694,7 +4606,7 @@ trait Operations
         return $this->request('GET', '/v1/landing-page-folders/{id}/revisions/{revisionId}', $o);
     }
 
-    /** GET /v1/landing-pages */
+    /** GET /v1/landing-pages - Filter by name, state, site, folder, language, archived and created/updated ranges; sort by created, updated or name */
     public function getV1LandingPages(array $o = []): mixed
     {
         return $this->request('GET', '/v1/landing-pages', $o);
@@ -3736,6 +4648,12 @@ trait Operations
         return $this->request('GET', '/v1/landing-pages/{id}/clicks', $o);
     }
 
+    /** GET /v1/landing-pages/{id}/content - The page rendered to HTML (draft by default), with its block document */
+    public function getV1LandingPagesByIdContent(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/landing-pages/{id}/content', $o);
+    }
+
     /** GET /v1/landing-pages/{id}/languages */
     public function getV1LandingPagesByIdLanguages(array $o = []): mixed
     {
@@ -3760,6 +4678,12 @@ trait Operations
         return $this->request('GET', '/v1/landing-pages/{id}/revisions/{revisionId}', $o);
     }
 
+    /** GET /v1/landing-pages/{id}/seo - SEO recommendations for one page (draft) */
+    public function getV1LandingPagesByIdSeo(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/landing-pages/{id}/seo', $o);
+    }
+
     /** GET /v1/landing-pages/not-found - Page addresses visitors requested that serve nothing, most requested first */
     public function getV1LandingPagesNotFound(array $o = []): mixed
     {
@@ -3770,6 +4694,18 @@ trait Operations
     public function getV1LandingPagesReport(array $o = []): mixed
     {
         return $this->request('GET', '/v1/landing-pages/report', $o);
+    }
+
+    /** GET /v1/landing-pages/seo/audit - SEO audit of every page: score and recommendations */
+    public function getV1LandingPagesSeoAudit(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/landing-pages/seo/audit', $o);
+    }
+
+    /** GET /v1/landing-page-templates - Built-in page presets for `template_id`, and a link to more */
+    public function getV1LandingPageTemplates(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/landing-page-templates', $o);
     }
 
     /** GET /v1/leads */
@@ -3796,10 +4732,52 @@ trait Operations
         return $this->request('GET', '/v1/leads/companies/{id}', $o);
     }
 
+    /** GET /v1/leads/companies/{id}/crm */
+    public function getV1LeadsCompaniesByIdCrm(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/leads/companies/{id}/crm', $o);
+    }
+
+    /** GET /v1/leads/companies/{id}/files */
+    public function getV1LeadsCompaniesByIdFiles(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/leads/companies/{id}/files', $o);
+    }
+
+    /** GET /v1/leads/companies/{id}/files/{fileId}/url - A download link valid for five minutes */
+    public function getV1LeadsCompaniesByIdFilesByFileIdUrl(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/leads/companies/{id}/files/{fileId}/url', $o);
+    }
+
     /** GET /v1/leads/companies/{id}/notes */
     public function getV1LeadsCompaniesByIdNotes(array $o = []): mixed
     {
         return $this->request('GET', '/v1/leads/companies/{id}/notes', $o);
+    }
+
+    /** GET /v1/leads/companies/{id}/score - Account score plus the roll-up of linked contacts' scores (profile attribute `key`) */
+    public function getV1LeadsCompaniesByIdScore(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/leads/companies/{id}/score', $o);
+    }
+
+    /** GET /v1/leads/companies/export - Every company as CSV, with score and custom fields */
+    public function getV1LeadsCompaniesExport(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/leads/companies/export', $o);
+    }
+
+    /** GET /v1/leads/companies/search - Companies whose name or domain starts with q */
+    public function getV1LeadsCompaniesSearch(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/leads/companies/search', $o);
+    }
+
+    /** GET /v1/leads/company-fields - Custom company fields */
+    public function getV1LeadsCompanyFields(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/leads/company-fields', $o);
     }
 
     /** GET /v1/leads/company-lists */
@@ -3928,7 +4906,7 @@ trait Operations
         return $this->request('GET', '/v1/list-folders/{id}', $o);
     }
 
-    /** GET /v1/lists */
+    /** GET /v1/lists - Lists with member counts; `count`/`offset` page them, `stats=true` adds send and unsubscribe stats */
     public function getV1Lists(array $o = []): mixed
     {
         return $this->request('GET', '/v1/lists', $o);
@@ -3970,6 +4948,12 @@ trait Operations
         return $this->request('GET', '/v1/lists/{id}/clients', $o);
     }
 
+    /** GET /v1/lists/{id}/growth-history - Daily sign-ups, imports, other adds, removals, pending opt-ins and the running member total of one list */
+    public function getV1ListsByIdGrowthHistory(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/lists/{id}/growth-history', $o);
+    }
+
     /** GET /v1/lists/{id}/members - List members, with the same filters as GET /v1/profiles */
     public function getV1ListsByIdMembers(array $o = []): mixed
     {
@@ -4006,7 +4990,7 @@ trait Operations
         return $this->request('GET', '/v1/lists/{id}/pending', $o);
     }
 
-    /** GET /v1/lists/{id}/size-history - List size at the end of each of the last N days */
+    /** GET /v1/lists/{id}/size-history - List size at the end of each of the last N days, or of each day between `from` and `to` */
     public function getV1ListsByIdSizeHistory(array $o = []): mixed
     {
         return $this->request('GET', '/v1/lists/{id}/size-history', $o);
@@ -4016,6 +5000,84 @@ trait Operations
     public function getV1ListsDeleted(array $o = []): mixed
     {
         return $this->request('GET', '/v1/lists/deleted', $o);
+    }
+
+    /** GET /v1/looker/datasets - Saved reports Looker Studio can use as data sources */
+    public function getV1LookerDatasets(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/looker/datasets', $o);
+    }
+
+    /** GET /v1/looker/manifest - Apps Script files (appsscript.json, Code.gs) for the Looker Studio community connector */
+    public function getV1LookerManifest(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/looker/manifest', $o);
+    }
+
+    /** GET /v1/loyalty/hub - Customer hub settings and its public URL */
+    public function getV1LoyaltyHub(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/loyalty/hub', $o);
+    }
+
+    /** GET /v1/loyalty/programs */
+    public function getV1LoyaltyPrograms(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/loyalty/programs', $o);
+    }
+
+    /** GET /v1/loyalty/programs/{id} */
+    public function getV1LoyaltyProgramsById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/loyalty/programs/{id}', $o);
+    }
+
+    /** GET /v1/loyalty/programs/{id}/members */
+    public function getV1LoyaltyProgramsByIdMembers(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/loyalty/programs/{id}/members', $o);
+    }
+
+    /** GET /v1/loyalty/programs/{id}/members/{profileId} */
+    public function getV1LoyaltyProgramsByIdMembersByProfileId(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/loyalty/programs/{id}/members/{profileId}', $o);
+    }
+
+    /** GET /v1/loyalty/programs/{id}/members/{profileId}/vouchers */
+    public function getV1LoyaltyProgramsByIdMembersByProfileIdVouchers(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/loyalty/programs/{id}/members/{profileId}/vouchers', $o);
+    }
+
+    /** GET /v1/loyalty/programs/{id}/rewards */
+    public function getV1LoyaltyProgramsByIdRewards(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/loyalty/programs/{id}/rewards', $o);
+    }
+
+    /** GET /v1/loyalty/programs/{id}/rules */
+    public function getV1LoyaltyProgramsByIdRules(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/loyalty/programs/{id}/rules', $o);
+    }
+
+    /** GET /v1/loyalty/programs/{id}/tiers */
+    public function getV1LoyaltyProgramsByIdTiers(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/loyalty/programs/{id}/tiers', $o);
+    }
+
+    /** GET /v1/loyalty/programs/{id}/transactions - The points ledger (append-only), newest first */
+    public function getV1LoyaltyProgramsByIdTransactions(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/loyalty/programs/{id}/transactions', $o);
+    }
+
+    /** GET /v1/loyalty/programs/{id}/wallet - Wallet pass settings (never the certificate or keys) */
+    public function getV1LoyaltyProgramsByIdWallet(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/loyalty/programs/{id}/wallet', $o);
     }
 
     /** GET /v1/mapped-metrics */
@@ -4034,6 +5096,12 @@ trait Operations
     public function getV1MarketingEvents(array $o = []): mixed
     {
         return $this->request('GET', '/v1/marketing-events', $o);
+    }
+
+    /** GET /v1/marketing-events/apps - Event apps and their event-details URL templates */
+    public function getV1MarketingEventsApps(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/marketing-events/apps', $o);
     }
 
     /** GET /v1/marketing-events/{id} */
@@ -4102,7 +5170,13 @@ trait Operations
         return $this->request('GET', '/v1/me', $o);
     }
 
-    /** GET /v1/members */
+    /** GET /v1/me/identities - Google/GitHub sign-ins linked to your account */
+    public function getV1MeIdentities(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/me/identities', $o);
+    }
+
+    /** GET /v1/members - Members of this workspace; ?email= or ?username= (display name or the part of the email before @) narrows to exact matches */
     public function getV1Members(array $o = []): mixed
     {
         return $this->request('GET', '/v1/members', $o);
@@ -4142,6 +5216,12 @@ trait Operations
     public function getV1MessagesByIdContent(array $o = []): mixed
     {
         return $this->request('GET', '/v1/messages/{id}/content', $o);
+    }
+
+    /** GET /v1/messages/{id}/preview - A message re-rendered for its recipient (any purpose and channel; stored content is transactional email only). Unsubscribe links stay placeh */
+    public function getV1MessagesByIdPreview(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/messages/{id}/preview', $o);
     }
 
     /** GET /v1/messages/events/export - CSV export of message events (delivered, bounced, opened, clicked...) for a date range */
@@ -4256,6 +5336,18 @@ trait Operations
     public function getV1NewsletterEngagementSurveysById(array $o = []): mixed
     {
         return $this->request('GET', '/v1/newsletter/engagement/surveys/{id}', $o);
+    }
+
+    /** GET /v1/newsletter/engagement/surveys/{id}/responses - Individual responses (respondent, time, answers), newest first */
+    public function getV1NewsletterEngagementSurveysByIdResponses(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/newsletter/engagement/surveys/{id}/responses', $o);
+    }
+
+    /** GET /v1/newsletter/engagement/surveys/{id}/responses/{respondent} - One respondent's answers */
+    public function getV1NewsletterEngagementSurveysByIdResponsesByRespondent(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/newsletter/engagement/surveys/{id}/responses/{respondent}', $o);
     }
 
     /** GET /v1/newsletter/engagement/surveys/{id}/results - Results per question */
@@ -4444,10 +5536,16 @@ trait Operations
         return $this->request('GET', '/v1/notes', $o);
     }
 
-    /** GET /v1/notes/{id} */
+    /** GET /v1/notes/{id} - A contact or company note by its id */
     public function getV1NotesById(array $o = []): mixed
     {
         return $this->request('GET', '/v1/notes/{id}', $o);
+    }
+
+    /** GET /v1/notifications - Your in-app notifications in this workspace, newest first, with the unread count */
+    public function getV1Notifications(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/notifications', $o);
     }
 
     /** GET /v1/oauth/authorize - Validate an authorization request and describe what the app asks for */
@@ -4522,6 +5620,30 @@ trait Operations
         return $this->request('GET', '/v1/object-types/{id}/versions', $o);
     }
 
+    /** GET /v1/operator/settings */
+    public function getV1OperatorSettings(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/operator/settings', $o);
+    }
+
+    /** GET /v1/operator/stats - Platform analytics: accounts, sign-ups, sessions, queue health */
+    public function getV1OperatorStats(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/operator/stats', $o);
+    }
+
+    /** GET /v1/operator/teams - Every workspace on this instance with its organization, members and status */
+    public function getV1OperatorTeams(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/operator/teams', $o);
+    }
+
+    /** GET /v1/operator/waitlist */
+    public function getV1OperatorWaitlist(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/operator/waitlist', $o);
+    }
+
     /** GET /v1/ops/dlq - Failed (retries exhausted) jobs belonging to the caller's workspace */
     public function getV1OpsDlq(array $o = []): mixed
     {
@@ -4594,6 +5716,18 @@ trait Operations
         return $this->request('GET', '/v1/outbound/blocklist/download', $o);
     }
 
+    /** GET /v1/outbound/booking-pages */
+    public function getV1OutboundBookingPages(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/outbound/booking-pages', $o);
+    }
+
+    /** GET /v1/outbound/booking-pages/{id}/bookings */
+    public function getV1OutboundBookingPagesByIdBookings(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/outbound/booking-pages/{id}/bookings', $o);
+    }
+
     /** GET /v1/outbound/call-dispositions */
     public function getV1OutboundCallDispositions(array $o = []): mixed
     {
@@ -4664,6 +5798,12 @@ trait Operations
     public function getV1OutboundInboxMailSent(array $o = []): mixed
     {
         return $this->request('GET', '/v1/outbound/inbox-mail/sent', $o);
+    }
+
+    /** GET /v1/outbound/inbox-routing */
+    public function getV1OutboundInboxRouting(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/outbound/inbox-routing', $o);
     }
 
     /** GET /v1/outbound/inbox/untracked - Replies that matched no send or prospect */
@@ -4748,6 +5888,12 @@ trait Operations
     public function getV1OutboundPools(array $o = []): mixed
     {
         return $this->request('GET', '/v1/outbound/pools', $o);
+    }
+
+    /** GET /v1/outbound/proposals - Messages proposed by AI agents, waiting for a person */
+    public function getV1OutboundProposals(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/outbound/proposals', $o);
     }
 
     /** GET /v1/outbound/prospects */
@@ -4906,6 +6052,42 @@ trait Operations
         return $this->request('GET', '/v1/outbound/tasks/filters', $o);
     }
 
+    /** GET /v1/outbound/task-types */
+    public function getV1OutboundTaskTypes(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/outbound/task-types', $o);
+    }
+
+    /** GET /v1/outbound/telephony - The connected Twilio Voice account (the auth token is never returned) */
+    public function getV1OutboundTelephony(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/outbound/telephony', $o);
+    }
+
+    /** GET /v1/outbound/telephony/my-phone - Your own phone for click-to-call (Twilio rings it first) */
+    public function getV1OutboundTelephonyMyPhone(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/outbound/telephony/my-phone', $o);
+    }
+
+    /** GET /v1/outbound/voice-clips */
+    public function getV1OutboundVoiceClips(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/outbound/voice-clips', $o);
+    }
+
+    /** GET /v1/page-sites */
+    public function getV1PageSites(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/page-sites', $o);
+    }
+
+    /** GET /v1/page-sites/{id} */
+    public function getV1PageSitesById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/page-sites/{id}', $o);
+    }
+
     /** GET /v1/planner/goals - Business goals the planner can build a starter plan for */
     public function getV1PlannerGoals(array $o = []): mixed
     {
@@ -4928,6 +6110,24 @@ trait Operations
     public function getV1PostalAddressesById(array $o = []): mixed
     {
         return $this->request('GET', '/v1/postal-addresses/{id}', $o);
+    }
+
+    /** GET /v1/postal-addresses/usable - Ids of the saved addresses the caller may pick (open ones, plus those of the caller's user groups) */
+    public function getV1PostalAddressesUsable(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/postal-addresses/usable', $o);
+    }
+
+    /** GET /v1/postal-address-groups - Address id -> user groups that may use it (absent = everyone) */
+    public function getV1PostalAddressGroups(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/postal-address-groups', $o);
+    }
+
+    /** GET /v1/profile-filters */
+    public function getV1ProfileFilters(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/profile-filters', $o);
     }
 
     /** GET /v1/profiles */
@@ -4954,7 +6154,7 @@ trait Operations
         return $this->request('GET', '/v1/profiles/{id}', $o);
     }
 
-    /** GET /v1/profiles/{id}/activity */
+    /** GET /v1/profiles/{id}/activity - Timeline, newest first; filter by activity type and by event / ref name */
     public function getV1ProfilesByIdActivity(array $o = []): mixed
     {
         return $this->request('GET', '/v1/profiles/{id}/activity', $o);
@@ -4972,7 +6172,7 @@ trait Operations
         return $this->request('GET', '/v1/profiles/{id}/campaign-stats', $o);
     }
 
-    /** GET /v1/profiles/{id}/companies - The company this contact belongs to (at most one) */
+    /** GET /v1/profiles/{id}/companies - Every company this contact is linked to, primary first, with the link fields */
     public function getV1ProfilesByIdCompanies(array $o = []): mixed
     {
         return $this->request('GET', '/v1/profiles/{id}/companies', $o);
@@ -4988,6 +6188,12 @@ trait Operations
     public function getV1ProfilesByIdContactPrefs(array $o = []): mixed
     {
         return $this->request('GET', '/v1/profiles/{id}/contact-prefs', $o);
+    }
+
+    /** GET /v1/profiles/{id}/crm - CRM records this contact is linked to */
+    public function getV1ProfilesByIdCrm(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/profiles/{id}/crm', $o);
     }
 
     /** GET /v1/profiles/{id}/devices - Device records entered by hand for this person (flagged manual; real visits are in the device_* attributes) */
@@ -5008,6 +6214,12 @@ trait Operations
         return $this->request('GET', '/v1/profiles/{id}/export', $o);
     }
 
+    /** GET /v1/profiles/{id}/files */
+    public function getV1ProfilesByIdFiles(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/profiles/{id}/files', $o);
+    }
+
     /** GET /v1/profiles/{id}/geo-ips */
     public function getV1ProfilesByIdGeoIps(array $o = []): mixed
     {
@@ -5018,6 +6230,12 @@ trait Operations
     public function getV1ProfilesByIdIdentifiers(array $o = []): mixed
     {
         return $this->request('GET', '/v1/profiles/{id}/identifiers', $o);
+    }
+
+    /** GET /v1/profiles/{id}/inbox - A contact's inbox, including read and deleted messages */
+    public function getV1ProfilesByIdInbox(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/profiles/{id}/inbox', $o);
     }
 
     /** GET /v1/profiles/{id}/lists */
@@ -5152,6 +6370,12 @@ trait Operations
         return $this->request('GET', '/v1/providers', $o);
     }
 
+    /** GET /v1/public/booking/{ws}/{slug}/slots - Open start times of a booking page (JSON) */
+    public function getV1PublicBookingByWsBySlugSlots(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/public/booking/{ws}/{slug}/slots', $o);
+    }
+
     /** GET /v1/public/brand - Name, logo and colours for a verified dashboard host (null otherwise) */
     public function getV1PublicBrand(array $o = []): mixed
     {
@@ -5170,6 +6394,18 @@ trait Operations
         return $this->request('GET', '/v1/public/sponsor-report/{ws}/{token}', $o);
     }
 
+    /** GET /v1/push/live - Live notifications, newest first */
+    public function getV1PushLive(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/push/live', $o);
+    }
+
+    /** GET /v1/push/live/{id} - One live notification and its status */
+    public function getV1PushLiveById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/push/live/{id}', $o);
+    }
+
     /** GET /v1/push/stats - Push sends, deliveries, failures, opens and retired devices for a window */
     public function getV1PushStats(array $o = []): mixed
     {
@@ -5186,6 +6422,12 @@ trait Operations
     public function getV1PushTokensById(array $o = []): mixed
     {
         return $this->request('GET', '/v1/push-tokens/{id}', $o);
+    }
+
+    /** GET /v1/qa-preview/clients - Mail clients the connected preview service offers, and its credit balance when it reports one */
+    public function getV1QaPreviewClients(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/qa-preview/clients', $o);
     }
 
     /** GET /v1/qa-preview/connection */
@@ -5224,13 +6466,13 @@ trait Operations
         return $this->request('GET', '/v1/registrar/search', $o);
     }
 
-    /** GET /v1/reports */
+    /** GET /v1/reports - Sent campaigns with opens, clicks, bounces, unsubscribes, complaints and rates; filter by channel, type and send time */
     public function getV1Reports(array $o = []): mixed
     {
         return $this->request('GET', '/v1/reports', $o);
     }
 
-    /** GET /v1/reports/{id} */
+    /** GET /v1/reports/{id} - One campaign report: domains, locations by country and region, links, abuse, revenue, rates, list-average and industry comparison, and the s */
     public function getV1ReportsById(array $o = []): mixed
     {
         return $this->request('GET', '/v1/reports/{id}', $o);
@@ -5260,16 +6502,40 @@ trait Operations
         return $this->request('GET', '/v1/reports/{id}/click-details', $o);
     }
 
+    /** GET /v1/reports/{id}/links - Every link: clicks, unique clickers, last click, share of all clicks, and the split per A/B variant */
+    public function getV1ReportsByIdLinks(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/reports/{id}/links', $o);
+    }
+
     /** GET /v1/reports/{id}/products */
     public function getV1ReportsByIdProducts(array $o = []): mixed
     {
         return $this->request('GET', '/v1/reports/{id}/products', $o);
     }
 
-    /** GET /v1/reports/{id}/sub-reports */
+    /** GET /v1/reports/{id}/share-stats - Views, unique visitors, referrers and link clicks of the public share link */
+    public function getV1ReportsByIdShareStats(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/reports/{id}/share-stats', $o);
+    }
+
+    /** GET /v1/reports/{id}/sub-reports - A/B variants, resends and RSS issues of this campaign */
     public function getV1ReportsByIdSubReports(array $o = []): mixed
     {
         return $this->request('GET', '/v1/reports/{id}/sub-reports', $o);
+    }
+
+    /** GET /v1/reports/{id}/unsubscribed - Who unsubscribed from this campaign, when, and how (link, List-Unsubscribe header, reply ...) */
+    public function getV1ReportsByIdUnsubscribed(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/reports/{id}/unsubscribed', $o);
+    }
+
+    /** GET /v1/review-feeds/google - URLs of the Google Shopping product reviews feed (XML, schema 2.3, 5,000 reviews per file) to give Merchant Center */
+    public function getV1ReviewFeedsGoogle(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/review-feeds/google', $o);
     }
 
     /** GET /v1/reviews */
@@ -5296,6 +6562,12 @@ trait Operations
         return $this->request('GET', '/v1/reviews/{id}', $o);
     }
 
+    /** GET /v1/review-settings - Review-for-coupon incentive */
+    public function getV1ReviewSettings(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/review-settings', $o);
+    }
+
     /** GET /v1/roles */
     public function getV1Roles(array $o = []): mixed
     {
@@ -5320,7 +6592,7 @@ trait Operations
         return $this->request('GET', '/v1/route-policies/{id}', $o);
     }
 
-    /** GET /v1/saved-sections */
+    /** GET /v1/saved-sections - Filter by name, block type and created / updated dates; sort newest, oldest, name or updated */
     public function getV1SavedSections(array $o = []): mixed
     {
         return $this->request('GET', '/v1/saved-sections', $o);
@@ -5348,6 +6620,12 @@ trait Operations
     public function getV1ScoresById(array $o = []): mixed
     {
         return $this->request('GET', '/v1/scores/{id}', $o);
+    }
+
+    /** GET /v1/scores/{id}/companies - Company scores rolled up from their contacts (sum, max or average), highest first */
+    public function getV1ScoresByIdCompanies(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/scores/{id}/companies', $o);
     }
 
     /** GET /v1/scores/{id}/draft */
@@ -5416,7 +6694,7 @@ trait Operations
         return $this->request('GET', '/v1/segments/{id}/explain-match/{profileId}', $o);
     }
 
-    /** GET /v1/segments/{id}/export - Current members as CSV text (first 50,000) */
+    /** GET /v1/segments/{id}/export - Current members as CSV text (first 50,000); POST /v1/segments/:id/export-jobs exports every member as a file */
     public function getV1SegmentsByIdExport(array $o = []): mixed
     {
         return $this->request('GET', '/v1/segments/{id}/export', $o);
@@ -5434,10 +6712,16 @@ trait Operations
         return $this->request('GET', '/v1/segments/{id}/match-runs', $o);
     }
 
-    /** GET /v1/segments/{id}/members */
+    /** GET /v1/segments/{id}/members - Current members with the time each joined; filter by email, phone or join date, sort by join date */
     public function getV1SegmentsByIdMembers(array $o = []): mixed
     {
         return $this->request('GET', '/v1/segments/{id}/members', $o);
+    }
+
+    /** GET /v1/segments/{id}/objects - Members of an object segment, each with the profiles linked to it */
+    public function getV1SegmentsByIdObjects(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/segments/{id}/objects', $o);
     }
 
     /** GET /v1/segments/{id}/snapshots - Saved snapshots of a segment, newest first */
@@ -5506,6 +6790,12 @@ trait Operations
         return $this->request('GET', '/v1/senders/{id}', $o);
     }
 
+    /** GET /v1/senders/{id}/signing - S/MIME certificate and PGP signing key of an email sender (metadata only; private parts never leave the vault) */
+    public function getV1SendersByIdSigning(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/senders/{id}/signing', $o);
+    }
+
     /** GET /v1/senders/{id}/stats */
     public function getV1SendersByIdStats(array $o = []): mixed
     {
@@ -5530,6 +6820,12 @@ trait Operations
         return $this->request('GET', '/v1/send-options/{sourceKind}/{sourceId}', $o);
     }
 
+    /** GET /v1/shared-object-schemas - Object schemas shared across the workspaces of this organization */
+    public function getV1SharedObjectSchemas(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/shared-object-schemas', $o);
+    }
+
     /** GET /v1/shares/{type}/{id} - Who a list, template, campaign or segment is shared with (none = open to all roles that can use it) */
     public function getV1SharesByTypeById(array $o = []): mixed
     {
@@ -5546,6 +6842,18 @@ trait Operations
     public function getV1SignupDomains(array $o = []): mixed
     {
         return $this->request('GET', '/v1/signup-domains', $o);
+    }
+
+    /** GET /v1/site-messages */
+    public function getV1SiteMessages(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/site-messages', $o);
+    }
+
+    /** GET /v1/site-messages/{id} */
+    public function getV1SiteMessagesById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/site-messages/{id}', $o);
     }
 
     /** GET /v1/sites */
@@ -5570,6 +6878,24 @@ trait Operations
     public function getV1SitesByIdHealth(array $o = []): mixed
     {
         return $this->request('GET', '/v1/sites/{id}/health', $o);
+    }
+
+    /** GET /v1/slack/installs - Slack workspaces the app is installed in */
+    public function getV1SlackInstalls(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/slack/installs', $o);
+    }
+
+    /** GET /v1/slack/sends - Recent Slack sends with their outcome */
+    public function getV1SlackSends(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/slack/sends', $o);
+    }
+
+    /** GET /v1/slack/templates - Slack message templates */
+    public function getV1SlackTemplates(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/slack/templates', $o);
     }
 
     /** GET /v1/sms/ai-drafts/{id} */
@@ -5680,6 +7006,42 @@ trait Operations
         return $this->request('GET', '/v1/snippets/{id}', $o);
     }
 
+    /** GET /v1/social/accounts - Connected social accounts */
+    public function getV1SocialAccounts(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/social/accounts', $o);
+    }
+
+    /** GET /v1/social/apps - Which networks (and Slack) can be connected by sign-in on this install */
+    public function getV1SocialApps(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/social/apps', $o);
+    }
+
+    /** GET /v1/social/oauth/pending/{id} - Pages and accounts a finished sign-in can post as, to pick from (yours, for 15 minutes) */
+    public function getV1SocialOauthPendingById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/social/oauth/pending/{id}', $o);
+    }
+
+    /** GET /v1/social/posts - Posts scheduled or published in a date range (the calendar) */
+    public function getV1SocialPosts(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/social/posts', $o);
+    }
+
+    /** GET /v1/social/posts/{id} - One post with its publish status and metrics */
+    public function getV1SocialPostsById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/social/posts/{id}', $o);
+    }
+
+    /** GET /v1/social/posts/{id}/comments - Comments on a published post (pulled with its metrics) */
+    public function getV1SocialPostsByIdComments(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/social/posts/{id}/comments', $o);
+    }
+
     /** GET /v1/soft-bounce-allowlist */
     public function getV1SoftBounceAllowlist(array $o = []): mixed
     {
@@ -5764,6 +7126,18 @@ trait Operations
         return $this->request('GET', '/v1/sponsors/publications/{publicationId}/rules', $o);
     }
 
+    /** GET /v1/sql-sources */
+    public function getV1SqlSources(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/sql-sources', $o);
+    }
+
+    /** GET /v1/sql-sources/{id} */
+    public function getV1SqlSourcesById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/sql-sources/{id}', $o);
+    }
+
     /** GET /v1/sso */
     public function getV1Sso(array $o = []): mixed
     {
@@ -5798,6 +7172,12 @@ trait Operations
     public function getV1Stages(array $o = []): mixed
     {
         return $this->request('GET', '/v1/stages', $o);
+    }
+
+    /** GET /v1/standard-fields - Required / visible / default settings of email, first name, last name and phone */
+    public function getV1StandardFields(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/standard-fields', $o);
     }
 
     /** GET /v1/subscription-channels - Channels a person can subscribe to, with the purposes each is consented for */
@@ -5884,7 +7264,7 @@ trait Operations
         return $this->request('GET', '/v1/template-gallery', $o);
     }
 
-    /** GET /v1/templates */
+    /** GET /v1/templates - Filter by channel, folder, tag, text, creator (`createdBy=me`), format and creation date; sort newest, oldest, name or updated */
     public function getV1Templates(array $o = []): mixed
     {
         return $this->request('GET', '/v1/templates', $o);
@@ -5894,6 +7274,12 @@ trait Operations
     public function getV1TemplatesById(array $o = []): mixed
     {
         return $this->request('GET', '/v1/templates/{id}', $o);
+    }
+
+    /** GET /v1/templates/{id}/client-preview-runs - Inbox preview run history for a template, newest first */
+    public function getV1TemplatesByIdClientPreviewRuns(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/templates/{id}/client-preview-runs', $o);
     }
 
     /** GET /v1/templates/{id}/default-content - The fill-in parts of the current version: each block of a block design, or each marked region of HTML */
@@ -5912,6 +7298,12 @@ trait Operations
     public function getV1TemplatesByIdLanguagesByLocale(array $o = []): mixed
     {
         return $this->request('GET', '/v1/templates/{id}/languages/{locale}', $o);
+    }
+
+    /** GET /v1/templates/{id}/optimizer - Writing checks on the saved version, weighed by how similar senders' email campaigns perform (peer benchmarks, or the static reference range */
+    public function getV1TemplatesByIdOptimizer(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/templates/{id}/optimizer', $o);
     }
 
     /** GET /v1/templates/{id}/publish-status - Live version, unpublished changes and versions waiting for approval */
@@ -5980,7 +7372,7 @@ trait Operations
         return $this->request('GET', '/v1/topic-groups/{id}', $o);
     }
 
-    /** GET /v1/topics */
+    /** GET /v1/topics - Topics; `groupId` filters by group, `counts=true` adds how many people are subscribed to each */
     public function getV1Topics(array $o = []): mixed
     {
         return $this->request('GET', '/v1/topics', $o);
@@ -6056,6 +7448,12 @@ trait Operations
     public function getV1TransactionalDefinitionsByIdTranslations(array $o = []): mixed
     {
         return $this->request('GET', '/v1/transactional/definitions/{id}/translations', $o);
+    }
+
+    /** GET /v1/transactional/metadata-fields - Declared metadata keys shown as message-log columns, each with an optional view template ({{ value }}) */
+    public function getV1TransactionalMetadataFields(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/transactional/metadata-fields', $o);
     }
 
     /** GET /v1/transactional/metadata-keys */
@@ -6134,6 +7532,18 @@ trait Operations
     public function getV1UserGroupsById(array $o = []): mixed
     {
         return $this->request('GET', '/v1/user-groups/{id}', $o);
+    }
+
+    /** GET /v1/user-groups/{id}/access */
+    public function getV1UserGroupsByIdAccess(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/user-groups/{id}/access', $o);
+    }
+
+    /** GET /v1/version - Running version, whether a newer release exists, and the operator banner */
+    public function getV1Version(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/version', $o);
     }
 
     /** GET /v1/web-feeds */
@@ -6250,6 +7660,12 @@ trait Operations
         return $this->request('GET', '/v1/webhook-templates/{id}', $o);
     }
 
+    /** GET /v1/webhook-templates/{id}/inputs/{key}/options - Dropdown values for an enum input (fixed options, or loaded from its options URL) */
+    public function getV1WebhookTemplatesByIdInputsByKeyOptions(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/webhook-templates/{id}/inputs/{key}/options', $o);
+    }
+
     /** GET /v1/webhook-templates/{id}/revisions - Every saved state of a call template / custom action, newest first */
     public function getV1WebhookTemplatesByIdRevisions(array $o = []): mixed
     {
@@ -6260,6 +7676,30 @@ trait Operations
     public function getV1WebhookTemplatesByIdRevisionsByRevisionId(array $o = []): mixed
     {
         return $this->request('GET', '/v1/webhook-templates/{id}/revisions/{revisionId}', $o);
+    }
+
+    /** GET /v1/whatsapp/connections/{connectionId}/account - Business and phone-number status, messaging-limit tier and the raw quality rating, read live from Meta */
+    public function getV1WhatsappConnectionsByConnectionIdAccount(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/whatsapp/connections/{connectionId}/account', $o);
+    }
+
+    /** GET /v1/whatsapp/flows - WhatsApp Flows */
+    public function getV1WhatsappFlows(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/whatsapp/flows', $o);
+    }
+
+    /** GET /v1/whatsapp/flows/{id} - One Flow */
+    public function getV1WhatsappFlowsById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/whatsapp/flows/{id}', $o);
+    }
+
+    /** GET /v1/whatsapp/flows/{id}/runs - Who was sent the Flow and what they answered */
+    public function getV1WhatsappFlowsByIdRuns(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/whatsapp/flows/{id}/runs', $o);
     }
 
     /** GET /v1/whatsapp/stats - WhatsApp delivery numbers per day (accepted, delivered, failed, blocked, replies) with the reasons messages were blocked; default last 30 da */
@@ -6274,6 +7714,12 @@ trait Operations
         return $this->request('GET', '/v1/whatsapp/templates', $o);
     }
 
+    /** GET /v1/whatsapp/templates/{id} - One registered template with its approval status (refresh=true pulls the latest status from the provider first) */
+    public function getV1WhatsappTemplatesById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/whatsapp/templates/{id}', $o);
+    }
+
     /** GET /v1/whatsapp/window/{id} - Is the 24-hour session window open for this contact (can free text be sent)? */
     public function getV1WhatsappWindowById(array $o = []): mixed
     {
@@ -6284,6 +7730,18 @@ trait Operations
     public function getV1WhiteLabel(array $o = []): mixed
     {
         return $this->request('GET', '/v1/white-label', $o);
+    }
+
+    /** GET /v1/workflow-custom-types - The workspace's own action and trigger types (palette and trigger picker) */
+    public function getV1WorkflowCustomTypes(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/workflow-custom-types', $o);
+    }
+
+    /** GET /v1/workflow-custom-types/{id} */
+    public function getV1WorkflowCustomTypesById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/workflow-custom-types/{id}', $o);
     }
 
     /** GET /v1/workflows */
@@ -6320,6 +7778,12 @@ trait Operations
     public function getV1WorkflowsByIdEnrollmentsByEnrollmentIdSteps(array $o = []): mixed
     {
         return $this->request('GET', '/v1/workflows/{id}/enrollments/{enrollmentId}/steps', $o);
+    }
+
+    /** GET /v1/workflows/{id}/entry-skips - People who could not enter (journey not live, outside its window, no start step, profile gone, cap reached), newest first */
+    public function getV1WorkflowsByIdEntrySkips(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/workflows/{id}/entry-skips', $o);
     }
 
     /** GET /v1/workflows/{id}/export */
@@ -6448,6 +7912,18 @@ trait Operations
         return $this->request('GET', '/v1/workspace/ip-allowlist', $o);
     }
 
+    /** GET /v1/workspaces/current/resets */
+    public function getV1WorkspacesCurrentResets(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/workspaces/current/resets', $o);
+    }
+
+    /** GET /v1/workspaces/current/resets/{id} */
+    public function getV1WorkspacesCurrentResetsById(array $o = []): mixed
+    {
+        return $this->request('GET', '/v1/workspaces/current/resets/{id}', $o);
+    }
+
     /** GET /v1/workspaces/current/schedule-for-removal - When this workspace will be erased, if its removal is scheduled */
     public function getV1WorkspacesCurrentScheduleForRemoval(array $o = []): mixed
     {
@@ -6458,6 +7934,36 @@ trait Operations
     public function getV1WorkspaceTestMode(array $o = []): mixed
     {
         return $this->request('GET', '/v1/workspace/test-mode', $o);
+    }
+
+    /** GET /wallet/apple/{ws}/v1/devices/{device}/registrations/{passType} - Serial numbers of this device's passes changed since the tag */
+    public function getWalletAppleByWsV1DevicesByDeviceRegistrationsByPassType(array $o = []): mixed
+    {
+        return $this->request('GET', '/wallet/apple/{ws}/v1/devices/{device}/registrations/{passType}', $o);
+    }
+
+    /** GET /wallet/apple/{ws}/v1/passes/{passType}/{serial} - The latest version of a pass */
+    public function getWalletAppleByWsV1PassesByPassTypeBySerial(array $o = []): mixed
+    {
+        return $this->request('GET', '/wallet/apple/{ws}/v1/passes/{passType}/{serial}', $o);
+    }
+
+    /** GET /wallet/install/{token} - Add a pass to Apple Wallet (download) or Google Wallet (redirect) */
+    public function getWalletInstallByToken(array $o = []): mixed
+    {
+        return $this->request('GET', '/wallet/install/{token}', $o);
+    }
+
+    /** GET /wallet/logo/{ws}/{file} - A programme's wallet logo (Google Wallet fetches it from here) */
+    public function getWalletLogoByWsByFile(array $o = []): mixed
+    {
+        return $this->request('GET', '/wallet/logo/{ws}/{file}', $o);
+    }
+
+    /** GET /webhooks/ads/meta/leadgen - Meta leadgen webhook verification handshake */
+    public function getWebhooksAdsMetaLeadgen(array $o = []): mixed
+    {
+        return $this->request('GET', '/webhooks/ads/meta/leadgen', $o);
     }
 
     /** GET /webhooks/{workspaceId}/{connectionId} - WhatsApp (Meta) webhook verification handshake */
@@ -6496,10 +8002,40 @@ trait Operations
         return $this->request('PATCH', '/v1/ads/audiences/{id}', $o);
     }
 
+    /** PATCH /v1/ads/campaigns/{id} - Edit a draft campaign */
+    public function patchV1AdsCampaignsById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/ads/campaigns/{id}', $o);
+    }
+
+    /** PATCH /v1/ads/lead-syncs/{id} - Pause or remap a lead-ad sync */
+    public function patchV1AdsLeadSyncsById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/ads/lead-syncs/{id}', $o);
+    }
+
     /** PATCH /v1/agency/clients/{workspaceId} - Rename a client workspace from the agency */
     public function patchV1AgencyClientsByWorkspaceId(array $o = []): mixed
     {
         return $this->request('PATCH', '/v1/agency/clients/{workspaceId}', $o);
+    }
+
+    /** PATCH /v1/ai-agents/{id} - Rename, switch on or off, turn auto-send on or off, or change its settings */
+    public function patchV1AiAgentsById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/ai-agents/{id}', $o);
+    }
+
+    /** PATCH /v1/ai-agents/{id}/guidances/{guidanceId} */
+    public function patchV1AiAgentsByIdGuidancesByGuidanceId(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/ai-agents/{id}/guidances/{guidanceId}', $o);
+    }
+
+    /** PATCH /v1/ai-agents/items/{id} - Edit a pending draft before approving it */
+    public function patchV1AiAgentsItemsById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/ai-agents/items/{id}', $o);
     }
 
     /** PATCH /v1/analytics/attribution/settings - Conversion event, touch windows and model. Applies to conversions recorded from now on. */
@@ -6548,6 +8084,12 @@ trait Operations
     public function patchV1AssetsById(array $o = []): mixed
     {
         return $this->request('PATCH', '/v1/assets/{id}', $o);
+    }
+
+    /** PATCH /v1/association-labels/{id} */
+    public function patchV1AssociationLabelsById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/association-labels/{id}', $o);
     }
 
     /** PATCH /v1/attributes/computed/{key} */
@@ -6604,6 +8146,12 @@ trait Operations
         return $this->request('PATCH', '/v1/business-goals/{id}', $o);
     }
 
+    /** PATCH /v1/calendar-feeds/{id} */
+    public function patchV1CalendarFeedsById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/calendar-feeds/{id}', $o);
+    }
+
     /** PATCH /v1/calendar/mine/{id} */
     public function patchV1CalendarMineById(array $o = []): mixed
     {
@@ -6620,6 +8168,18 @@ trait Operations
     public function patchV1CampaignsById(array $o = []): mixed
     {
         return $this->request('PATCH', '/v1/campaigns/{id}', $o);
+    }
+
+    /** PATCH /v1/campaigns/{id}/audiences/{audienceId} */
+    public function patchV1CampaignsByIdAudiencesByAudienceId(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/campaigns/{id}/audiences/{audienceId}', $o);
+    }
+
+    /** PATCH /v1/campaigns/{id}/drafts/{draftId} */
+    public function patchV1CampaignsByIdDraftsByDraftId(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/campaigns/{id}/drafts/{draftId}', $o);
     }
 
     /** PATCH /v1/campaigns/{id}/feedback/{feedbackId} */
@@ -6694,10 +8254,22 @@ trait Operations
         return $this->request('PATCH', '/v1/commerce/stores/{storeId}/orders/{id}/lines/{lineId}', $o);
     }
 
+    /** PATCH /v1/commerce/stores/{storeId}/products/{productId} - Change only the fields sent */
+    public function patchV1CommerceStoresByStoreIdProductsByProductId(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/commerce/stores/{storeId}/products/{productId}', $o);
+    }
+
     /** PATCH /v1/commerce/stores/{storeId}/products/{productId}/images/{imageId} */
     public function patchV1CommerceStoresByStoreIdProductsByProductIdImagesByImageId(array $o = []): mixed
     {
         return $this->request('PATCH', '/v1/commerce/stores/{storeId}/products/{productId}/images/{imageId}', $o);
+    }
+
+    /** PATCH /v1/commerce/stores/{storeId}/products/{productId}/variants/{variantId} - Change only the fields sent */
+    public function patchV1CommerceStoresByStoreIdProductsByProductIdVariantsByVariantId(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/commerce/stores/{storeId}/products/{productId}/variants/{variantId}', $o);
     }
 
     /** PATCH /v1/connections/{id} */
@@ -6760,6 +8332,12 @@ trait Operations
         return $this->request('PATCH', '/v1/deliverability/rules/{id}', $o);
     }
 
+    /** PATCH /v1/destinations/{id} */
+    public function patchV1DestinationsById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/destinations/{id}', $o);
+    }
+
     /** PATCH /v1/emails/{id}/draft - Edit the draft; refused once the email is sending or sent */
     public function patchV1EmailsByIdDraft(array $o = []): mixed
     {
@@ -6788,6 +8366,12 @@ trait Operations
     public function patchV1ImportSchedulesById(array $o = []): mixed
     {
         return $this->request('PATCH', '/v1/import-schedules/{id}', $o);
+    }
+
+    /** PATCH /v1/in-app-components/{id} - Edit a component */
+    public function patchV1InAppComponentsById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/in-app-components/{id}', $o);
     }
 
     /** PATCH /v1/in-app-messages/{id} - Edit an in-app message or change its status (draft, live, paused, archived) */
@@ -6826,10 +8410,22 @@ trait Operations
         return $this->request('PATCH', '/v1/leads/companies/{id}', $o);
     }
 
+    /** PATCH /v1/leads/companies/{id}/notes/{noteId} - Edit a company note */
+    public function patchV1LeadsCompaniesByIdNotesByNoteId(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/leads/companies/{id}/notes/{noteId}', $o);
+    }
+
     /** PATCH /v1/leads/companies/{id}/stage - Account stage and owner; written through to the outbound account so do-not-contact gates enrollment */
     public function patchV1LeadsCompaniesByIdStage(array $o = []): mixed
     {
         return $this->request('PATCH', '/v1/leads/companies/{id}/stage', $o);
+    }
+
+    /** PATCH /v1/leads/company-fields/{key} */
+    public function patchV1LeadsCompanyFieldsByKey(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/leads/company-fields/{key}', $o);
     }
 
     /** PATCH /v1/leads/providers/{id} */
@@ -6860,6 +8456,30 @@ trait Operations
     public function patchV1ListsById(array $o = []): mixed
     {
         return $this->request('PATCH', '/v1/lists/{id}', $o);
+    }
+
+    /** PATCH /v1/loyalty/programs/{id} */
+    public function patchV1LoyaltyProgramsById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/loyalty/programs/{id}', $o);
+    }
+
+    /** PATCH /v1/loyalty/programs/{id}/rewards/{subId} */
+    public function patchV1LoyaltyProgramsByIdRewardsBySubId(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/loyalty/programs/{id}/rewards/{subId}', $o);
+    }
+
+    /** PATCH /v1/loyalty/programs/{id}/rules/{subId} */
+    public function patchV1LoyaltyProgramsByIdRulesBySubId(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/loyalty/programs/{id}/rules/{subId}', $o);
+    }
+
+    /** PATCH /v1/loyalty/programs/{id}/tiers/{subId} */
+    public function patchV1LoyaltyProgramsByIdTiersBySubId(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/loyalty/programs/{id}/tiers/{subId}', $o);
     }
 
     /** PATCH /v1/marketing-events/{id} */
@@ -6898,7 +8518,7 @@ trait Operations
         return $this->request('PATCH', '/v1/newsletter/engagement/replies/{id}', $o);
     }
 
-    /** PATCH /v1/newsletter/engagement/surveys/{id} - Rename, describe, open or close */
+    /** PATCH /v1/newsletter/engagement/surveys/{id} - Rename, describe, open or close, link a list, set the thank-you, turn the anonymous link on or off, edit questions */
     public function patchV1NewsletterEngagementSurveysById(array $o = []): mixed
     {
         return $this->request('PATCH', '/v1/newsletter/engagement/surveys/{id}', $o);
@@ -6946,6 +8566,12 @@ trait Operations
         return $this->request('PATCH', '/v1/object-types/{id}', $o);
     }
 
+    /** PATCH /v1/operator/settings - Instance settings: sign-up open / waitlist / closed, required email verification for new accounts, a banner for every user */
+    public function patchV1OperatorSettings(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/operator/settings', $o);
+    }
+
     /** PATCH /v1/outbound/accounts/{id} */
     public function patchV1OutboundAccountsById(array $o = []): mixed
     {
@@ -6982,10 +8608,16 @@ trait Operations
         return $this->request('PATCH', '/v1/outbound/sequences/{id}', $o);
     }
 
-    /** PATCH /v1/outbound/tasks/{id} - Edit title, notes or due date of an open task */
+    /** PATCH /v1/outbound/tasks/{id} - Edit an open task: title, notes, due date, kind, type, links and reminder */
     public function patchV1OutboundTasksById(array $o = []): mixed
     {
         return $this->request('PATCH', '/v1/outbound/tasks/{id}', $o);
+    }
+
+    /** PATCH /v1/page-sites/{id} */
+    public function patchV1PageSitesById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/page-sites/{id}', $o);
     }
 
     /** PATCH /v1/postal-addresses/{id} */
@@ -7000,7 +8632,7 @@ trait Operations
         return $this->request('PATCH', '/v1/profiles/by/{idType}/{value}', $o);
     }
 
-    /** PATCH /v1/profiles/{id} */
+    /** PATCH /v1/profiles/{id} - Update a contact; `tags` adds tags and `subscriptions` sets email / SMS marketing status through the consent ledger */
     public function patchV1ProfilesById(array $o = []): mixed
     {
         return $this->request('PATCH', '/v1/profiles/{id}', $o);
@@ -7018,13 +8650,19 @@ trait Operations
         return $this->request('PATCH', '/v1/programs/{id}', $o);
     }
 
+    /** PATCH /v1/push/live/{id} - Update what the live notification shows */
+    public function patchV1PushLiveById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/push/live/{id}', $o);
+    }
+
     /** PATCH /v1/referral-programs/{id} */
     public function patchV1ReferralProgramsById(array $o = []): mixed
     {
         return $this->request('PATCH', '/v1/referral-programs/{id}', $o);
     }
 
-    /** PATCH /v1/reviews/{id} - Moderate: pending | published | rejected */
+    /** PATCH /v1/reviews/{id} - Moderate (pending | published | featured | unpublished | rejected), reply publicly, or edit rating, text, images and type */
     public function patchV1ReviewsById(array $o = []): mixed
     {
         return $this->request('PATCH', '/v1/reviews/{id}', $o);
@@ -7060,6 +8698,12 @@ trait Operations
         return $this->request('PATCH', '/v1/sending-domains/{id}', $o);
     }
 
+    /** PATCH /v1/site-messages/{id} - Edit, publish (status) or archive */
+    public function patchV1SiteMessagesById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/site-messages/{id}', $o);
+    }
+
     /** PATCH /v1/sites/{id} - Rename, change domain, or enable/disable tracking (the pixel) */
     public function patchV1SitesById(array $o = []): mixed
     {
@@ -7090,6 +8734,12 @@ trait Operations
         return $this->request('PATCH', '/v1/snippets/{id}/unlock', $o);
     }
 
+    /** PATCH /v1/social/posts/{id} - Edit or reschedule a draft or scheduled post */
+    public function patchV1SocialPostsById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/social/posts/{id}', $o);
+    }
+
     /** PATCH /v1/sponsors/advertisers/{id} - Edit an advertiser */
     public function patchV1SponsorsAdvertisersById(array $o = []): mixed
     {
@@ -7106,6 +8756,12 @@ trait Operations
     public function patchV1SponsorsCreativesById(array $o = []): mixed
     {
         return $this->request('PATCH', '/v1/sponsors/creatives/{id}', $o);
+    }
+
+    /** PATCH /v1/sql-sources/{id} - Edit; a blank password or token keeps the stored one */
+    public function patchV1SqlSourcesById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/sql-sources/{id}', $o);
     }
 
     /** PATCH /v1/stages/{id} - Rename or reweight; a rename carries the people in it */
@@ -7162,6 +8818,12 @@ trait Operations
         return $this->request('PATCH', '/v1/transactional/definitions/{id}', $o);
     }
 
+    /** PATCH /v1/transactional/metadata-fields/{name} */
+    public function patchV1TransactionalMetadataFieldsByName(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/transactional/metadata-fields/{name}', $o);
+    }
+
     /** PATCH /v1/translations/{id} */
     public function patchV1TranslationsById(array $o = []): mixed
     {
@@ -7186,10 +8848,22 @@ trait Operations
         return $this->request('PATCH', '/v1/webhook-templates/{id}', $o);
     }
 
+    /** PATCH /v1/whatsapp/flows/{id} - Edit a Flow (its JSON only before publishing) */
+    public function patchV1WhatsappFlowsById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/whatsapp/flows/{id}', $o);
+    }
+
     /** PATCH /v1/whatsapp/templates/{id} - Edit a draft or rejected template (any field) or an approved one (merge values only); the linked Hermetica template follows */
     public function patchV1WhatsappTemplatesById(array $o = []): mixed
     {
         return $this->request('PATCH', '/v1/whatsapp/templates/{id}', $o);
+    }
+
+    /** PATCH /v1/workflow-custom-types/{id} - Rename, change fields, or archive (archived types leave the palette but keep running) */
+    public function patchV1WorkflowCustomTypesById(array $o = []): mixed
+    {
+        return $this->request('PATCH', '/v1/workflow-custom-types/{id}', $o);
     }
 
     /** PATCH /v1/workflows/{id} */
@@ -7222,10 +8896,46 @@ trait Operations
         return $this->request('PATCH', '/v1/workspace', $o);
     }
 
+    /** POST /book/{ws}/{slug} - Book a time on a booking page (consent is recorded only when the visitor ticks the box) */
+    public function postBookByWsBySlug(array $o = []): mixed
+    {
+        return $this->request('POST', '/book/{ws}/{slug}', $o);
+    }
+
+    /** POST /client/geofence-events - The app entered, left or dwelled in a geofence: recorded as geofence_entered / geofence_exited / geofence_dwelled */
+    public function postClientGeofenceEvents(array $o = []): mixed
+    {
+        return $this->request('POST', '/client/geofence-events', $o);
+    }
+
     /** POST /client/in-app-events - Report impressions, clicks and dismissals */
     public function postClientInAppEvents(array $o = []): mixed
     {
         return $this->request('POST', '/client/in-app-events', $o);
+    }
+
+    /** POST /client/in-app-trackers/{id}/events - The component reports an event; the journey waiting on it moves on */
+    public function postClientInAppTrackersByIdEvents(array $o = []): mixed
+    {
+        return $this->request('POST', '/client/in-app-trackers/{id}/events', $o);
+    }
+
+    /** POST /client/inbox/{id}/delete - Delete an inbox message for the contact */
+    public function postClientInboxByIdDelete(array $o = []): mixed
+    {
+        return $this->request('POST', '/client/inbox/{id}/delete', $o);
+    }
+
+    /** POST /client/inbox/{id}/read - Mark an inbox message read or unread */
+    public function postClientInboxByIdRead(array $o = []): mixed
+    {
+        return $this->request('POST', '/client/inbox/{id}/read', $o);
+    }
+
+    /** POST /client/push-live-tokens - The app reports an ActivityKit push-to-start token or a running activity's update token */
+    public function postClientPushLiveTokens(array $o = []): mixed
+    {
+        return $this->request('POST', '/client/push-live-tokens', $o);
     }
 
     /** POST /client/push-tokens - Register a device push token for a profile (iOS, Android, or a web push subscription) */
@@ -7252,6 +8962,12 @@ trait Operations
         return $this->request('POST', '/e/link/{ws}/{kind}/{id}', $o);
     }
 
+    /** POST /e/s/{ws}/{token} - Submit answers through the anonymous survey link */
+    public function postESByWsByToken(array $o = []): mixed
+    {
+        return $this->request('POST', '/e/s/{ws}/{token}', $o);
+    }
+
     /** POST /e/survey/{ws}/{id} - Submit (or change) survey answers */
     public function postESurveyByWsById(array $o = []): mixed
     {
@@ -7262,6 +8978,60 @@ trait Operations
     public function postEVByPollByOptWildcard(array $o = []): mixed
     {
         return $this->request('POST', '/e/v/{poll}/{opt}/{*}', $o);
+    }
+
+    /** POST /hub/{ws}/api/link - Email a hub sign-in link (same reply whether or not the address is known) */
+    public function postHubByWsApiLink(array $o = []): mixed
+    {
+        return $this->request('POST', '/hub/{ws}/api/link', $o);
+    }
+
+    /** POST /hub/{ws}/api/redeem - Spend the shopper's points on a reward. Send your own `key` (8-64 of A-Z a-z 0-9 _ -) per redemption: a retry with the same key spends once */
+    public function postHubByWsApiRedeem(array $o = []): mixed
+    {
+        return $this->request('POST', '/hub/{ws}/api/redeem', $o);
+    }
+
+    /** POST /hub/{ws}/api/session - Swap the emailed link token for a 7-day session token */
+    public function postHubByWsApiSession(array $o = []): mixed
+    {
+        return $this->request('POST', '/hub/{ws}/api/session', $o);
+    }
+
+    /** POST /hub/{ws}/api/wishlist */
+    public function postHubByWsApiWishlist(array $o = []): mixed
+    {
+        return $this->request('POST', '/hub/{ws}/api/wishlist', $o);
+    }
+
+    /** POST /hub/{ws}/redeem */
+    public function postHubByWsRedeem(array $o = []): mixed
+    {
+        return $this->request('POST', '/hub/{ws}/redeem', $o);
+    }
+
+    /** POST /hub/{ws}/signin */
+    public function postHubByWsSignin(array $o = []): mixed
+    {
+        return $this->request('POST', '/hub/{ws}/signin', $o);
+    }
+
+    /** POST /hub/{ws}/signout */
+    public function postHubByWsSignout(array $o = []): mixed
+    {
+        return $this->request('POST', '/hub/{ws}/signout', $o);
+    }
+
+    /** POST /hub/{ws}/wishlist */
+    public function postHubByWsWishlist(array $o = []): mixed
+    {
+        return $this->request('POST', '/hub/{ws}/wishlist', $o);
+    }
+
+    /** POST /hub/{ws}/wishlist/remove */
+    public function postHubByWsWishlistRemove(array $o = []): mixed
+    {
+        return $this->request('POST', '/hub/{ws}/wishlist/remove', $o);
     }
 
     /** POST /ingest/v1/back-in-stock - Ask to be notified when a catalog product is back in stock or drops in price */
@@ -7300,10 +9070,22 @@ trait Operations
         return $this->request('POST', '/ingest/v1/reviews', $o);
     }
 
+    /** POST /ingest/v1/reviews/media - Upload one review photo (multipart field "file"; JPEG, PNG, WebP or GIF); send the returned URL in the review's images */
+    public function postIngestV1ReviewsMedia(array $o = []): mixed
+    {
+        return $this->request('POST', '/ingest/v1/reviews/media', $o);
+    }
+
     /** POST /ingest/v1/segment - Segment/RudderStack-compatible track, identify, page */
     public function postIngestV1Segment(array $o = []): mixed
     {
         return $this->request('POST', '/ingest/v1/segment', $o);
+    }
+
+    /** POST /ingest/v1/site-messages/{id}/shown - The visitor saw a site message (a queued one stops showing) */
+    public function postIngestV1SiteMessagesByIdShown(array $o = []): mixed
+    {
+        return $this->request('POST', '/ingest/v1/site-messages/{id}/shown', $o);
     }
 
     /** POST /ingest/v1/subscribe - Subscribe an email/phone with the consent text the visitor saw */
@@ -7316,6 +9098,12 @@ trait Operations
     public function postLCWildcard(array $o = []): mixed
     {
         return $this->request('POST', '/l/c/{*}', $o);
+    }
+
+    /** POST /mcp - Hosted MCP server (JSON-RPC over HTTP). Authenticate with a secret key; tools the key's scopes do not cover are hidden and refused. */
+    public function postMcp(array $o = []): mixed
+    {
+        return $this->request('POST', '/mcp', $o);
     }
 
     /** POST /oauth/revoke - RFC 7009 token revocation */
@@ -7474,6 +9262,12 @@ trait Operations
         return $this->request('POST', '/scim/v2/Users', $o);
     }
 
+    /** POST /u/resubscribe/{*} - Undo an unsubscribe from the same signed link: records a new opt-in in the consent ledger and lifts only that unsubscribe */
+    public function postUResubscribeWildcard(array $o = []): mixed
+    {
+        return $this->request('POST', '/u/resubscribe/{*}', $o);
+    }
+
     /** POST /u/{*} - Unsubscribe (RFC 8058 one-click); idempotent */
     public function postUWildcard(array $o = []): mixed
     {
@@ -7504,6 +9298,12 @@ trait Operations
         return $this->request('POST', '/v1/ads/accounts/{id}/conversions/test', $o);
     }
 
+    /** POST /v1/ads/accounts/{id}/objects/refresh - Pull ad objects and insights now */
+    public function postV1AdsAccountsByIdObjectsRefresh(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/ads/accounts/{id}/objects/refresh', $o);
+    }
+
     /** POST /v1/ads/audiences - Sync a segment to an ad platform audience; the first run starts at once */
     public function postV1AdsAudiences(array $o = []): mixed
     {
@@ -7514,6 +9314,36 @@ trait Operations
     public function postV1AdsAudiencesByIdSync(array $o = []): mixed
     {
         return $this->request('POST', '/v1/ads/audiences/{id}/sync', $o);
+    }
+
+    /** POST /v1/ads/campaigns - Draft a campaign (budget, schedule, targeting, creative); nothing is sent until it is pushed */
+    public function postV1AdsCampaigns(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/ads/campaigns', $o);
+    }
+
+    /** POST /v1/ads/campaigns/{id}/budget - Change the daily budget and end date */
+    public function postV1AdsCampaignsByIdBudget(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/ads/campaigns/{id}/budget', $o);
+    }
+
+    /** POST /v1/ads/campaigns/{id}/push - Create the campaign on the platform (paused) */
+    public function postV1AdsCampaignsByIdPush(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/ads/campaigns/{id}/push', $o);
+    }
+
+    /** POST /v1/ads/campaigns/{id}/status - Activate, pause or archive the campaign on the platform */
+    public function postV1AdsCampaignsByIdStatus(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/ads/campaigns/{id}/status', $o);
+    }
+
+    /** POST /v1/ads/lead-syncs - Sync a lead-ad form into a form. Consent is recorded only from the mapped consent checkboxes */
+    public function postV1AdsLeadSyncs(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/ads/lead-syncs', $o);
     }
 
     /** POST /v1/ads/oauth/{platform}/start - Start the sign-in: returns the platform authorize URL (state is bound to this workspace and user) */
@@ -7550,6 +9380,12 @@ trait Operations
     public function postV1AgencyClientsByWorkspaceIdDelete(array $o = []): mixed
     {
         return $this->request('POST', '/v1/agency/clients/{workspaceId}/delete', $o);
+    }
+
+    /** POST /v1/agency/clients/{workspaceId}/handoff - Single-use login link into a client workspace (valid 5 minutes, audited in the client workspace) */
+    public function postV1AgencyClientsByWorkspaceIdHandoff(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/agency/clients/{workspaceId}/handoff', $o);
     }
 
     /** POST /v1/agency/clients/{workspaceId}/pause - Pause a client workspace: every send request is refused until it is resumed */
@@ -7612,6 +9448,48 @@ trait Operations
         return $this->request('POST', '/v1/agency/move-sequence', $o);
     }
 
+    /** POST /v1/agency/transfer - Copy a segment, list or form from the current workspace into another workspace of the same agency (templates and journeys: /v1/agency/copy-t */
+    public function postV1AgencyTransfer(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/agency/transfer', $o);
+    }
+
+    /** POST /v1/ai-agents - Create an agent. It starts switched off and review-only */
+    public function postV1AiAgents(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/ai-agents', $o);
+    }
+
+    /** POST /v1/ai-agents/{id}/guidances - Add a guidance rule (at most 10 per agent) */
+    public function postV1AiAgentsByIdGuidances(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/ai-agents/{id}/guidances', $o);
+    }
+
+    /** POST /v1/ai-agents/{id}/run - Run the agent now instead of waiting for its next pass. Drafts go to the review feed unless auto-send is on */
+    public function postV1AiAgentsByIdRun(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/ai-agents/{id}/run', $o);
+    }
+
+    /** POST /v1/ai-agents/items/bulk-decide */
+    public function postV1AiAgentsItemsBulkDecide(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/ai-agents/items/bulk-decide', $o);
+    }
+
+    /** POST /v1/ai-agents/items/bulk-delete - Delete items from the feed; a deleted draft is never sent */
+    public function postV1AiAgentsItemsBulkDelete(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/ai-agents/items/bulk-delete', $o);
+    }
+
+    /** POST /v1/ai-agents/items/{id}/decide - Approve (sends through consent and suppression; a blocked recipient ends as blocked) or reject (nothing is sent) */
+    public function postV1AiAgentsItemsByIdDecide(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/ai-agents/items/{id}/decide', $o);
+    }
+
     /** POST /v1/ai/body-from-brief */
     public function postV1AiBodyFromBrief(array $o = []): mixed
     {
@@ -7634,6 +9512,12 @@ trait Operations
     public function postV1AiFirstLine(array $o = []): mixed
     {
         return $this->request('POST', '/v1/ai/first-line', $o);
+    }
+
+    /** POST /v1/ai/flow-builds/{id}/saved - Record which flow a build was saved as (the flow itself is created through /v1/workflows) */
+    public function postV1AiFlowBuildsByIdSaved(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/ai/flow-builds/{id}/saved', $o);
     }
 
     /** POST /v1/ai/flow-edit - Propose a changed version of a flow from a plain-words instruction; validated, never saved (the editor saves it as a draft after the user ac */
@@ -7756,6 +9640,12 @@ trait Operations
         return $this->request('POST', '/v1/analytics/dashboards/{id}/clone', $o);
     }
 
+    /** POST /v1/analytics/dashboards/import - Create a dashboard and its reports from an exported definition */
+    public function postV1AnalyticsDashboardsImport(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/analytics/dashboards/import', $o);
+    }
+
     /** POST /v1/analytics/dashboards/owners/batch/update - Reassign dashboards to another member (null = unassigned) */
     public function postV1AnalyticsDashboardsOwnersBatchUpdate(array $o = []): mixed
     {
@@ -7772,6 +9662,12 @@ trait Operations
     public function postV1AnalyticsPredictionsRun(array $o = []): mixed
     {
         return $this->request('POST', '/v1/analytics/predictions/run', $o);
+    }
+
+    /** POST /v1/analytics/records/run - Run a record-source report without saving it: pick columns, filter, order and limit */
+    public function postV1AnalyticsRecordsRun(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/analytics/records/run', $o);
     }
 
     /** POST /v1/analytics/reports */
@@ -7822,7 +9718,7 @@ trait Operations
         return $this->request('POST', '/v1/asset-folders', $o);
     }
 
-    /** POST /v1/assets - Upload a file (multipart field "file"): PNG, JPEG, GIF, WebP up to 5 MB; PDF and MP4 up to 25 MB */
+    /** POST /v1/assets - Upload a file (multipart field "file", optional fields folderId, filename, access first). Images up to 5 MB; other allowed types (Settings > */
     public function postV1Assets(array $o = []): mixed
     {
         return $this->request('POST', '/v1/assets', $o);
@@ -7864,6 +9760,18 @@ trait Operations
         return $this->request('POST', '/v1/assets/uploads/{id}/complete', $o);
     }
 
+    /** POST /v1/association-labels */
+    public function postV1AssociationLabels(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/association-labels', $o);
+    }
+
+    /** POST /v1/associations/batch - Up to 100 associations in one call; any failure rolls back all */
+    public function postV1AssociationsBatch(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/associations/batch', $o);
+    }
+
     /** POST /v1/attributes/computed */
     public function postV1AttributesComputed(array $o = []): mixed
     {
@@ -7900,6 +9808,12 @@ trait Operations
         return $this->request('POST', '/v1/attributes/fields/{key}/type-check', $o);
     }
 
+    /** POST /v1/auth/handoff - Redeem a single-use agency hand-off token: opens the client workspace in a session bound to it */
+    public function postV1AuthHandoff(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/auth/handoff', $o);
+    }
+
     /** POST /v1/auth/login */
     public function postV1AuthLogin(array $o = []): mixed
     {
@@ -7930,7 +9844,19 @@ trait Operations
         return $this->request('POST', '/v1/auth/signup', $o);
     }
 
-    /** POST /v1/batches - Run up to 50 API calls in one request, in order, each with your own credentials and permissions (not atomic) */
+    /** POST /v1/auth/verify-email - Confirm an email address with the link token */
+    public function postV1AuthVerifyEmail(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/auth/verify-email', $o);
+    }
+
+    /** POST /v1/auth/waitlist - Join the waitlist while sign-up is invitation-only */
+    public function postV1AuthWaitlist(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/auth/waitlist', $o);
+    }
+
+    /** POST /v1/batches - Queue up to 1,000 API calls; they run in order in the background (not atomic). Poll the batch or subscribe to batch.finished */
     public function postV1Batches(array $o = []): mixed
     {
         return $this->request('POST', '/v1/batches', $o);
@@ -8014,6 +9940,18 @@ trait Operations
         return $this->request('POST', '/v1/business-goals/batch/restore', $o);
     }
 
+    /** POST /v1/calendar-feeds - Create a feed; the response holds the only copy of its subscription URL */
+    public function postV1CalendarFeeds(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/calendar-feeds', $o);
+    }
+
+    /** POST /v1/calendar-feeds/{id}/rotate - New subscription URL; the old one stops working */
+    public function postV1CalendarFeedsByIdRotate(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/calendar-feeds/{id}/rotate', $o);
+    }
+
     /** POST /v1/calendar/mine - Add an entry to my calendar */
     public function postV1CalendarMine(array $o = []): mixed
     {
@@ -8044,6 +9982,12 @@ trait Operations
         return $this->request('POST', '/v1/campaigns/bulk-delete', $o);
     }
 
+    /** POST /v1/campaigns/bulk-update - Move, re-own, archive or tag many campaigns; each one that cannot change is reported */
+    public function postV1CampaignsBulkUpdate(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/campaigns/bulk-update', $o);
+    }
+
     /** POST /v1/campaigns/{id}/ab-rollout */
     public function postV1CampaignsByIdAbRollout(array $o = []): mixed
     {
@@ -8054,6 +9998,24 @@ trait Operations
     public function postV1CampaignsByIdAiSummary(array $o = []): mixed
     {
         return $this->request('POST', '/v1/campaigns/{id}/ai-summary', $o);
+    }
+
+    /** POST /v1/campaigns/{id}/archive */
+    public function postV1CampaignsByIdArchive(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/campaigns/{id}/archive', $o);
+    }
+
+    /** POST /v1/campaigns/{id}/audiences */
+    public function postV1CampaignsByIdAudiences(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/campaigns/{id}/audiences', $o);
+    }
+
+    /** POST /v1/campaigns/{id}/audiences/{audienceId}/clone */
+    public function postV1CampaignsByIdAudiencesByAudienceIdClone(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/campaigns/{id}/audiences/{audienceId}/clone', $o);
     }
 
     /** POST /v1/campaigns/{id}/cancel */
@@ -8080,6 +10042,12 @@ trait Operations
         return $this->request('POST', '/v1/campaigns/{id}/draft/reset', $o);
     }
 
+    /** POST /v1/campaigns/{id}/drafts/decide - Approve (send) or reject the selected drafts */
+    public function postV1CampaignsByIdDraftsDecide(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/campaigns/{id}/drafts/decide', $o);
+    }
+
     /** POST /v1/campaigns/{id}/feedback */
     public function postV1CampaignsByIdFeedback(array $o = []): mixed
     {
@@ -8102,6 +10070,12 @@ trait Operations
     public function postV1CampaignsByIdPause(array $o = []): mixed
     {
         return $this->request('POST', '/v1/campaigns/{id}/pause', $o);
+    }
+
+    /** POST /v1/campaigns/{id}/postcard/proof - Render both sides for one contact (or sample data) and show the address it would go to */
+    public function postV1CampaignsByIdPostcardProof(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/campaigns/{id}/postcard/proof', $o);
     }
 
     /** POST /v1/campaigns/{id}/recipient-estimations */
@@ -8182,10 +10156,22 @@ trait Operations
         return $this->request('POST', '/v1/campaigns/{id}/triggers/{triggerId}/cancel', $o);
     }
 
+    /** POST /v1/campaigns/{id}/unarchive */
+    public function postV1CampaignsByIdUnarchive(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/campaigns/{id}/unarchive', $o);
+    }
+
     /** POST /v1/campaigns/{id}/unschedule */
     public function postV1CampaignsByIdUnschedule(array $o = []): mixed
     {
         return $this->request('POST', '/v1/campaigns/{id}/unschedule', $o);
+    }
+
+    /** POST /v1/campaigns/{id}/variants/grid - Multivariate test: one variant per combination of templates, subjects, from names and preview texts */
+    public function postV1CampaignsByIdVariantsGrid(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/campaigns/{id}/variants/grid', $o);
     }
 
     /** POST /v1/campaigns/query - Filter campaigns with a typed where / orderBy / limit / offset (fields are an allowlist; read "fields" in the result) */
@@ -8242,10 +10228,16 @@ trait Operations
         return $this->request('POST', '/v1/catalog/items/{id}/variants', $o);
     }
 
-    /** POST /v1/catalog/subscriptions - Notify a profile (catalog.back_in_stock / catalog.price_drop event) when the product changes */
+    /** POST /v1/catalog/subscriptions - Notify a profile (by id, email or phone; one variant or the whole product; by email, SMS or push) when the product is back in stock or drops */
     public function postV1CatalogSubscriptions(array $o = []): mixed
     {
         return $this->request('POST', '/v1/catalog/subscriptions', $o);
+    }
+
+    /** POST /v1/client-previews/{externalId} - Poll the preview service for a run and save its latest result */
+    public function postV1ClientPreviewsByExternalId(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/client-previews/{externalId}', $o);
     }
 
     /** POST /v1/collections */
@@ -8258,6 +10250,12 @@ trait Operations
     public function postV1CommerceActivate(array $o = []): mixed
     {
         return $this->request('POST', '/v1/commerce/activate', $o);
+    }
+
+    /** POST /v1/commerce/orders/{id}/ai-summary - A plain-language status of one order (payment, fulfilment, refunds, contents). Needs AI assist switched on; the shipping address and links n */
+    public function postV1CommerceOrdersByIdAiSummary(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/commerce/orders/{id}/ai-summary', $o);
     }
 
     /** POST /v1/commerce/stores */
@@ -8308,10 +10306,22 @@ trait Operations
         return $this->request('POST', '/v1/commerce/stores/{storeId}/orders/{id}/lines', $o);
     }
 
+    /** POST /v1/commerce/stores/{storeId}/products - Add a product to this store under its store id */
+    public function postV1CommerceStoresByStoreIdProducts(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/commerce/stores/{storeId}/products', $o);
+    }
+
     /** POST /v1/commerce/stores/{storeId}/products/{productId}/images */
     public function postV1CommerceStoresByStoreIdProductsByProductIdImages(array $o = []): mixed
     {
         return $this->request('POST', '/v1/commerce/stores/{storeId}/products/{productId}/images', $o);
+    }
+
+    /** POST /v1/commerce/stores/{storeId}/products/{productId}/variants - Add a variant to a store product under its store id */
+    public function postV1CommerceStoresByStoreIdProductsByProductIdVariants(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/commerce/stores/{storeId}/products/{productId}/variants', $o);
     }
 
     /** POST /v1/connections */
@@ -8482,6 +10492,30 @@ trait Operations
         return $this->request('POST', '/v1/deliverability/placement-tests/{id}/stop', $o);
     }
 
+    /** POST /v1/deliverability/recommendations/{id}/complete */
+    public function postV1DeliverabilityRecommendationsByIdComplete(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/deliverability/recommendations/{id}/complete', $o);
+    }
+
+    /** POST /v1/deliverability/recommendations/{id}/dismiss */
+    public function postV1DeliverabilityRecommendationsByIdDismiss(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/deliverability/recommendations/{id}/dismiss', $o);
+    }
+
+    /** POST /v1/deliverability/recommendations/{id}/pause-14-days - Pause sending from the affected mailboxes for 14 days; they resume on their own. Repeating it keeps the first resume date */
+    public function postV1DeliverabilityRecommendationsByIdPause14Days(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/deliverability/recommendations/{id}/pause-14-days', $o);
+    }
+
+    /** POST /v1/deliverability/recommendations/{id}/pause-mailboxes - Pause the mailboxes on the affected domain until you resume them. Repeating it changes nothing */
+    public function postV1DeliverabilityRecommendationsByIdPauseMailboxes(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/deliverability/recommendations/{id}/pause-mailboxes', $o);
+    }
+
     /** POST /v1/deliverability/rules */
     public function postV1DeliverabilityRules(array $o = []): mixed
     {
@@ -8500,10 +10534,28 @@ trait Operations
         return $this->request('POST', '/v1/deliverability/sources', $o);
     }
 
-    /** POST /v1/deliverability/spam-report - Spam test of a draft: score by section (subject, wording, links, formatting) with a fix per finding */
+    /** POST /v1/deliverability/spam-report - Spam test of a draft: score by section (subject, wording, links, formatting) with a fix per finding. Uses the operator's SpamAssassin (SPAMD */
     public function postV1DeliverabilitySpamReport(array $o = []): mixed
     {
         return $this->request('POST', '/v1/deliverability/spam-report', $o);
+    }
+
+    /** POST /v1/destinations - Add a destination; profiles that opted out of tracking are never forwarded */
+    public function postV1Destinations(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/destinations', $o);
+    }
+
+    /** POST /v1/destinations/{id}/test - Send one test event to the destination */
+    public function postV1DestinationsByIdTest(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/destinations/{id}/test', $o);
+    }
+
+    /** POST /v1/do-not-contact - Add do-not-contact values; phones block SMS and WhatsApp, LinkedIn URLs block LinkedIn outreach */
+    public function postV1DoNotContact(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/do-not-contact', $o);
     }
 
     /** POST /v1/eligibility/check - Debug: would this send be allowed? */
@@ -8512,10 +10564,64 @@ trait Operations
         return $this->request('POST', '/v1/eligibility/check', $o);
     }
 
+    /** POST /v1/embed-api/{token}/ai/brief */
+    public function postV1EmbedApiByTokenAiBrief(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/embed-api/{token}/ai/brief', $o);
+    }
+
+    /** POST /v1/embed-api/{token}/ai/rewrite */
+    public function postV1EmbedApiByTokenAiRewrite(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/embed-api/{token}/ai/rewrite', $o);
+    }
+
+    /** POST /v1/embed-api/{token}/ai/subjects */
+    public function postV1EmbedApiByTokenAiSubjects(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/embed-api/{token}/ai/subjects', $o);
+    }
+
+    /** POST /v1/embed-api/{token}/ai/translate */
+    public function postV1EmbedApiByTokenAiTranslate(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/embed-api/{token}/ai/translate', $o);
+    }
+
+    /** POST /v1/embed-api/{token}/journey/publish - Publish the saved draft as a new version; body.inFlight chooses stay / migrate / exit for enrollments already inside */
+    public function postV1EmbedApiByTokenJourneyPublish(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/embed-api/{token}/journey/publish', $o);
+    }
+
+    /** POST /v1/embed-api/{token}/journey/simulate - Dry-run the journey (or an unsaved definition) for sample profiles; nothing is sent or stored */
+    public function postV1EmbedApiByTokenJourneySimulate(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/embed-api/{token}/journey/simulate', $o);
+    }
+
+    /** POST /v1/embed-api/{token}/template/test-send - Send the template's current version to one of the workspace's seed lists (normal routing, consent and suppression apply) */
+    public function postV1EmbedApiByTokenTemplateTestSend(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/embed-api/{token}/template/test-send', $o);
+    }
+
+    /** POST /v1/embed-api/{token}/template/versions */
+    public function postV1EmbedApiByTokenTemplateVersions(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/embed-api/{token}/template/versions', $o);
+    }
+
     /** POST /v1/embeds - Signed, expiring link to embed a read-only segment or journey view in another site (only the given origin may frame it) */
     public function postV1Embeds(array $o = []): mixed
     {
         return $this->request('POST', '/v1/embeds', $o);
+    }
+
+    /** POST /v1/embeds/editors - Signed, expiring link that embeds the template editor, the journey editor or the deliveries table in another site (only the given origin may */
+    public function postV1EmbedsEditors(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/embeds/editors', $o);
     }
 
     /** POST /v1/event-definitions - Declare an event (and optionally its properties) before it is first sent */
@@ -8548,6 +10654,12 @@ trait Operations
         return $this->request('POST', '/v1/events/batch/items', $o);
     }
 
+    /** POST /v1/events/export-jobs - Every event matching the GET /v1/events filters as a CSV file, prepared in the background (poll GET /v1/exports/:id for the download link) */
+    public function postV1EventsExportJobs(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/events/export-jobs', $o);
+    }
+
     /** POST /v1/experiments */
     public function postV1Experiments(array $o = []): mixed
     {
@@ -8560,7 +10672,7 @@ trait Operations
         return $this->request('POST', '/v1/experiments/{id}/conclude', $o);
     }
 
-    /** POST /v1/exports - Export a segment, a list or all profiles to CSV; poll GET /v1/exports/:id for the signed download URL */
+    /** POST /v1/exports - Export a segment, a list or all profiles to CSV, NDJSON or XLSX, with chosen columns (`attributes.<key>` for a custom property); poll GET /v */
     public function postV1Exports(array $o = []): mixed
     {
         return $this->request('POST', '/v1/exports', $o);
@@ -8570,6 +10682,18 @@ trait Operations
     public function postV1ExportsActivity(array $o = []): mixed
     {
         return $this->request('POST', '/v1/exports/activity', $o);
+    }
+
+    /** POST /v1/exports/clicks - Every human link click with its message and URL, as CSV (poll GET /v1/exports/:id) */
+    public function postV1ExportsClicks(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/exports/clicks', $o);
+    }
+
+    /** POST /v1/exports/message-events - Every message event (delivered, open, click, bounce ...) with its message, as CSV (poll GET /v1/exports/:id) */
+    public function postV1ExportsMessageEvents(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/exports/message-events', $o);
     }
 
     /** POST /v1/exports/suppressions - CSV export of suppressions (rejects) */
@@ -8650,6 +10774,18 @@ trait Operations
         return $this->request('POST', '/v1/hooks/subscribe', $o);
     }
 
+    /** POST /v1/identifier-blocks/check - Whether an email, phone or external id is blocked */
+    public function postV1IdentifierBlocksCheck(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/identifier-blocks/check', $o);
+    }
+
+    /** POST /v1/identifier-blocks/unblock - Allow a blocked identifier to be added again (admin; suppressions stay) */
+    public function postV1IdentifierBlocksUnblock(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/identifier-blocks/unblock', $o);
+    }
+
     /** POST /v1/identify */
     public function postV1Identify(array $o = []): mixed
     {
@@ -8728,10 +10864,28 @@ trait Operations
         return $this->request('POST', '/v1/imports/json', $o);
     }
 
+    /** POST /v1/imports/url - One-off import of a CSV at an https URL: events, object records or relationships (poll GET /v1/jobs) */
+    public function postV1ImportsUrl(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/imports/url', $o);
+    }
+
+    /** POST /v1/in-app-components - Define a component the app renders natively (its fields and the events it reports) */
+    public function postV1InAppComponents(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/in-app-components', $o);
+    }
+
     /** POST /v1/in-app-messages - Create an in-app message (draft) */
     public function postV1InAppMessages(array $o = []): mixed
     {
         return $this->request('POST', '/v1/in-app-messages', $o);
+    }
+
+    /** POST /v1/in-app-messages/{id}/send - Hold a live in-app message for one contact (shown on their next visit). Needs an idempotency key */
+    public function postV1InAppMessagesByIdSend(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/in-app-messages/{id}/send', $o);
     }
 
     /** POST /v1/inbound/domains - Add an inbound domain; point its MX at expectedMx, then call /check */
@@ -8758,10 +10912,28 @@ trait Operations
         return $this->request('POST', '/v1/inbound/simulate', $o);
     }
 
+    /** POST /v1/inbox-messages - Send a transactional message into a contact's in-app inbox. Needs an idempotency key */
+    public function postV1InboxMessages(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/inbox-messages', $o);
+    }
+
     /** POST /v1/integrations/connections */
     public function postV1IntegrationsConnections(array $o = []): mixed
     {
         return $this->request('POST', '/v1/integrations/connections', $o);
+    }
+
+    /** POST /v1/integrations/connections/{id}/crm/imports - Import (or re-import) the members of a CRM source; no consent is granted by importing */
+    public function postV1IntegrationsConnectionsByIdCrmImports(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/integrations/connections/{id}/crm/imports', $o);
+    }
+
+    /** POST /v1/integrations/connections/{id}/crm/users/refresh - Read the CRM users and match new ones to members by email */
+    public function postV1IntegrationsConnectionsByIdCrmUsersRefresh(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/integrations/connections/{id}/crm/users/refresh', $o);
     }
 
     /** POST /v1/integrations/connections/{id}/declarative/rotate-webhook-secret - Generate a new webhook secret; the new value is returned once and the old one stops working */
@@ -8818,10 +10990,28 @@ trait Operations
         return $this->request('POST', '/v1/integrations/declarative/connect', $o);
     }
 
+    /** POST /v1/integrations/google/start - Start a Google sign-in that saves a Sheets grant under the named secret; the access token is refreshed automatically */
+    public function postV1IntegrationsGoogleStart(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/integrations/google/start', $o);
+    }
+
     /** POST /v1/integrations/hubspot/install - Start the HubSpot OAuth install: creates the (disabled) connection and returns the authorize URL */
     public function postV1IntegrationsHubspotInstall(array $o = []): mixed
     {
         return $this->request('POST', '/v1/integrations/hubspot/install', $o);
+    }
+
+    /** POST /v1/integrations/packages - Install one catalogue package version; unsigned, mis-signed or unreviewed packages are refused */
+    public function postV1IntegrationsPackages(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/integrations/packages', $o);
+    }
+
+    /** POST /v1/integrations/packages/{packageId}/upgrade - Move an installed package (and every connection using it) to another verified version */
+    public function postV1IntegrationsPackagesByPackageIdUpgrade(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/integrations/packages/{packageId}/upgrade', $o);
     }
 
     /** POST /v1/integrations/warehouse/rows - Reverse-ETL: upsert profiles and events from warehouse rows */
@@ -8842,6 +11032,18 @@ trait Operations
         return $this->request('POST', '/v1/invitations/{id}/resend', $o);
     }
 
+    /** POST /v1/invitations/decline - Decline an invitation (the link stops working) */
+    public function postV1InvitationsDecline(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/invitations/decline', $o);
+    }
+
+    /** POST /v1/landing-page-clusters - Group a pillar page and its supporting pages; missing links between them are listed */
+    public function postV1LandingPageClusters(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/landing-page-clusters', $o);
+    }
+
     /** POST /v1/landing-page-folders */
     public function postV1LandingPageFolders(array $o = []): mixed
     {
@@ -8860,7 +11062,7 @@ trait Operations
         return $this->request('POST', '/v1/landing-page-folders/{id}/revisions/{revisionId}/restore', $o);
     }
 
-    /** POST /v1/landing-pages */
+    /** POST /v1/landing-pages - Create a page; `template_id` starts it from a preset when `doc` is left out */
     public function postV1LandingPages(array $o = []): mixed
     {
         return $this->request('POST', '/v1/landing-pages', $o);
@@ -8888,6 +11090,12 @@ trait Operations
     public function postV1LandingPagesByIdAbVariants(array $o = []): mixed
     {
         return $this->request('POST', '/v1/landing-pages/{id}/ab/variants', $o);
+    }
+
+    /** POST /v1/landing-pages/{id}/archive - Hide the page from the list and stop serving it */
+    public function postV1LandingPagesByIdArchive(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/landing-pages/{id}/archive', $o);
     }
 
     /** POST /v1/landing-pages/{id}/clone */
@@ -8938,6 +11146,12 @@ trait Operations
         return $this->request('POST', '/v1/landing-pages/{id}/schedule', $o);
     }
 
+    /** POST /v1/landing-pages/{id}/unarchive */
+    public function postV1LandingPagesByIdUnarchive(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/landing-pages/{id}/unarchive', $o);
+    }
+
     /** POST /v1/landing-pages/{id}/unpublish */
     public function postV1LandingPagesByIdUnpublish(array $o = []): mixed
     {
@@ -8956,7 +11170,43 @@ trait Operations
         return $this->request('POST', '/v1/leads/companies', $o);
     }
 
-    /** POST /v1/leads/companies/{id}/link */
+    /** POST /v1/leads/companies/batch - Create, edit, delete and link companies in one call (up to 500 operations); failures are reported per item */
+    public function postV1LeadsCompaniesBatch(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/leads/companies/batch', $o);
+    }
+
+    /** POST /v1/leads/companies/bulk-delete - Delete up to 500 companies; do-not-contact blocks on their domains stay */
+    public function postV1LeadsCompaniesBulkDelete(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/leads/companies/bulk-delete', $o);
+    }
+
+    /** POST /v1/leads/companies/{id}/contacts - Link several contacts at once, with optional link fields */
+    public function postV1LeadsCompaniesByIdContacts(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/leads/companies/{id}/contacts', $o);
+    }
+
+    /** POST /v1/leads/companies/{id}/crm/connect - Find the company in the CRM and link it without creating anything; empty fields and the owner are filled from the CRM */
+    public function postV1LeadsCompaniesByIdCrmConnect(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/leads/companies/{id}/crm/connect', $o);
+    }
+
+    /** POST /v1/leads/companies/{id}/crm/push - Create or update the company in the CRM (found by link, domain or name) and associate its contacts already in the CRM */
+    public function postV1LeadsCompaniesByIdCrmPush(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/leads/companies/{id}/crm/push', $o);
+    }
+
+    /** POST /v1/leads/companies/{id}/files - Upload a file (multipart field "file": PDF, image, text, CSV, Office or ZIP, up to 25 MB) */
+    public function postV1LeadsCompaniesByIdFiles(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/leads/companies/{id}/files', $o);
+    }
+
+    /** POST /v1/leads/companies/{id}/link - Link a contact (or change its link: primary flag, job title, role). A contact can be linked to several companies; one is primary */
     public function postV1LeadsCompaniesByIdLink(array $o = []): mixed
     {
         return $this->request('POST', '/v1/leads/companies/{id}/link', $o);
@@ -8972,6 +11222,12 @@ trait Operations
     public function postV1LeadsCompaniesByIdNotes(array $o = []): mixed
     {
         return $this->request('POST', '/v1/leads/companies/{id}/notes', $o);
+    }
+
+    /** POST /v1/leads/companies/{id}/score - Add (or with a negative delta, take) account score points */
+    public function postV1LeadsCompaniesByIdScore(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/leads/companies/{id}/score', $o);
     }
 
     /** POST /v1/leads/companies/{id}/source-contacts - Find contacts at an account. With no titles given, the AI assistant proposes the buyer titles first */
@@ -8998,6 +11254,12 @@ trait Operations
         return $this->request('POST', '/v1/leads/companies/import', $o);
     }
 
+    /** POST /v1/leads/companies/import-mapped - Import parsed CSV rows with a column mapping (built-in and custom company fields); existing domains are skipped or updated */
+    public function postV1LeadsCompaniesImportMapped(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/leads/companies/import-mapped', $o);
+    }
+
     /** POST /v1/leads/companies/query - Filter companies with a typed where / orderBy / limit / offset (fields are an allowlist; read "fields" in the result) */
     public function postV1LeadsCompaniesQuery(array $o = []): mixed
     {
@@ -9008,6 +11270,12 @@ trait Operations
     public function postV1LeadsCompaniesUnifyAccounts(array $o = []): mixed
     {
         return $this->request('POST', '/v1/leads/companies/unify-accounts', $o);
+    }
+
+    /** POST /v1/leads/company-fields */
+    public function postV1LeadsCompanyFields(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/leads/company-fields', $o);
     }
 
     /** POST /v1/leads/company-lists */
@@ -9196,6 +11464,72 @@ trait Operations
         return $this->request('POST', '/v1/lists/{id}/restore', $o);
     }
 
+    /** POST /v1/looker/data */
+    public function postV1LookerData(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/looker/data', $o);
+    }
+
+    /** POST /v1/looker/schema */
+    public function postV1LookerSchema(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/looker/schema', $o);
+    }
+
+    /** POST /v1/loyalty/programs */
+    public function postV1LoyaltyPrograms(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/loyalty/programs', $o);
+    }
+
+    /** POST /v1/loyalty/programs/{id}/adjust - Add or remove points by hand (send `key` to make a retry count once) */
+    public function postV1LoyaltyProgramsByIdAdjust(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/loyalty/programs/{id}/adjust', $o);
+    }
+
+    /** POST /v1/loyalty/programs/{id}/passes - Issue (or fetch) a member card or reward pass and its install links */
+    public function postV1LoyaltyProgramsByIdPasses(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/loyalty/programs/{id}/passes', $o);
+    }
+
+    /** POST /v1/loyalty/programs/{id}/passes/{serial}/replace-link - Revoke a pass's install link and return a new one (a card already added to a wallet keeps working) */
+    public function postV1LoyaltyProgramsByIdPassesBySerialReplaceLink(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/loyalty/programs/{id}/passes/{serial}/replace-link', $o);
+    }
+
+    /** POST /v1/loyalty/programs/{id}/redeem - Spend points on a reward; returns the coupon code */
+    public function postV1LoyaltyProgramsByIdRedeem(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/loyalty/programs/{id}/redeem', $o);
+    }
+
+    /** POST /v1/loyalty/programs/{id}/rewards - A reward costs points and hands out a code from a coupon pool */
+    public function postV1LoyaltyProgramsByIdRewards(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/loyalty/programs/{id}/rewards', $o);
+    }
+
+    /** POST /v1/loyalty/programs/{id}/rules - Earn points on an event (orders are `purchase`) */
+    public function postV1LoyaltyProgramsByIdRules(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/loyalty/programs/{id}/rules', $o);
+    }
+
+    /** POST /v1/loyalty/programs/{id}/tiers */
+    public function postV1LoyaltyProgramsByIdTiers(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/loyalty/programs/{id}/tiers', $o);
+    }
+
+    /** POST /v1/loyalty/vouchers/{id}/use - Mark a reward code used (also redeems the coupon code) */
+    public function postV1LoyaltyVouchersByIdUse(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/loyalty/vouchers/{id}/use', $o);
+    }
+
     /** POST /v1/markdown/preview - Render Markdown the way a markdown template compiles it (live editor preview) */
     public function postV1MarkdownPreview(array $o = []): mixed
     {
@@ -9328,10 +11662,16 @@ trait Operations
         return $this->request('POST', '/v1/metrics/aggregates', $o);
     }
 
-    /** POST /v1/metrics/ingest - A custom sender reports an open or click for a delivery id; feeds the same reports as tracked opens and clicks */
+    /** POST /v1/metrics/ingest - A custom sender reports an outcome for a delivery id (delivered, opened, clicked, converted, bounced, spammed, dropped, deferred, failed); i */
     public function postV1MetricsIngest(array $o = []): mixed
     {
         return $this->request('POST', '/v1/metrics/ingest', $o);
+    }
+
+    /** POST /v1/me/verify-email/resend - Mail a new confirmation link */
+    public function postV1MeVerifyEmailResend(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/me/verify-email/resend', $o);
     }
 
     /** POST /v1/migrations/hubspot/lists - Import HubSpot list memberships (list id, list name, email): one list per HubSpot list, existing contacts only, no consent granted */
@@ -9410,6 +11750,18 @@ trait Operations
     public function postV1NewsletterEngagementSurveys(array $o = []): mixed
     {
         return $this->request('POST', '/v1/newsletter/engagement/surveys', $o);
+    }
+
+    /** POST /v1/newsletter/engagement/surveys/{id}/campaign - Draft an email campaign to the survey's list, with a new template that links each recipient to the survey (signed per reader) */
+    public function postV1NewsletterEngagementSurveysByIdCampaign(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/newsletter/engagement/surveys/{id}/campaign', $o);
+    }
+
+    /** POST /v1/newsletter/engagement/surveys/{id}/duplicate - Copy a survey (questions and settings, no answers) */
+    public function postV1NewsletterEngagementSurveysByIdDuplicate(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/newsletter/engagement/surveys/{id}/duplicate', $o);
     }
 
     /** POST /v1/newsletter/gifts - Create a gift and its Stripe Checkout link for the buyer; the redeem link works once paid */
@@ -9598,6 +11950,18 @@ trait Operations
         return $this->request('POST', '/v1/newsletter/tiers/{id}/archive', $o);
     }
 
+    /** POST /v1/notifications/read */
+    public function postV1NotificationsRead(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/notifications/read', $o);
+    }
+
+    /** POST /v1/notifications/read-all */
+    public function postV1NotificationsReadAll(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/notifications/read-all', $o);
+    }
+
     /** POST /v1/oauth/authorize - The user approved: returns the redirect URL carrying the single-use code (PKCE S256 required) */
     public function postV1OauthAuthorize(array $o = []): mixed
     {
@@ -9646,6 +12010,12 @@ trait Operations
         return $this->request('POST', '/v1/objects/{type}/query', $o);
     }
 
+    /** POST /v1/objects/relationships/import - Link people (by externalId, email or phone) to object records (by type and externalId); a bad row is reported, the rest land */
+    public function postV1ObjectsRelationshipsImport(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/objects/relationships/import', $o);
+    }
+
     /** POST /v1/object-types */
     public function postV1ObjectTypes(array $o = []): mixed
     {
@@ -9656,6 +12026,18 @@ trait Operations
     public function postV1ObjectTypesByIdDraftPublish(array $o = []): mixed
     {
         return $this->request('POST', '/v1/object-types/{id}/draft/publish', $o);
+    }
+
+    /** POST /v1/object-types/{id}/share - Publish this workspace's object type to the organization (re-publishing bumps the version) */
+    public function postV1ObjectTypesByIdShare(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/object-types/{id}/share', $o);
+    }
+
+    /** POST /v1/operator/waitlist/{id}/approve - Let this address sign up, and email them the sign-up link */
+    public function postV1OperatorWaitlistByIdApprove(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/operator/waitlist/{id}/approve', $o);
     }
 
     /** POST /v1/ops/dlq/{queue}/{id}/replay - Move a failed job back to the queue (audited) */
@@ -9686,6 +12068,18 @@ trait Operations
     public function postV1OutboundBlocklistImport(array $o = []): mixed
     {
         return $this->request('POST', '/v1/outbound/blocklist/import', $o);
+    }
+
+    /** POST /v1/outbound/booking-pages */
+    public function postV1OutboundBookingPages(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/outbound/booking-pages', $o);
+    }
+
+    /** POST /v1/outbound/bookings/{id}/cancel */
+    public function postV1OutboundBookingsByIdCancel(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/outbound/bookings/{id}/cancel', $o);
     }
 
     /** POST /v1/outbound/calls - Log a finished call (outcome, duration, recording link) */
@@ -9922,6 +12316,12 @@ trait Operations
         return $this->request('POST', '/v1/outbound/personalize/{id}/apply', $o);
     }
 
+    /** POST /v1/outbound/proposals/{id}/decide - Approve (optionally edited) or reject; approving sends through the normal path, consent and suppression rechecked */
+    public function postV1OutboundProposalsByIdDecide(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/outbound/proposals/{id}/decide', $o);
+    }
+
     /** POST /v1/outbound/prospects/adopt */
     public function postV1OutboundProspectsAdopt(array $o = []): mixed
     {
@@ -10000,10 +12400,22 @@ trait Operations
         return $this->request('POST', '/v1/outbound/sequences/{id}/duplicate', $o);
     }
 
-    /** POST /v1/outbound/sequences/{id}/enroll */
+    /** POST /v1/outbound/sequences/{id}/enroll - Enroll chosen prospects and / or every member of a list (listId: all of its members) */
     public function postV1OutboundSequencesByIdEnroll(array $o = []): mixed
     {
         return $this->request('POST', '/v1/outbound/sequences/{id}/enroll', $o);
+    }
+
+    /** POST /v1/outbound/sequences/{id}/enroll-accounts - ABM: enroll the contacts of these companies, grouped per account (per-account cap and stop rule from the sequence settings) */
+    public function postV1OutboundSequencesByIdEnrollAccounts(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/outbound/sequences/{id}/enroll-accounts', $o);
+    }
+
+    /** POST /v1/outbound/sequences/{id}/export-leads - CSV of the sequence's leads with their fields, variables and per-lead stats, built in the background; optional email when ready */
+    public function postV1OutboundSequencesByIdExportLeads(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/outbound/sequences/{id}/export-leads', $o);
     }
 
     /** POST /v1/outbound/sequences/{id}/launch - Review gate: let held prospects start (the given ones, or every held prospect) */
@@ -10114,10 +12526,22 @@ trait Operations
         return $this->request('POST', '/v1/outbound/tasks', $o);
     }
 
+    /** POST /v1/outbound/tasks/bulk - Assign, snooze, complete or skip many tasks at once */
+    public function postV1OutboundTasksBulk(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/outbound/tasks/bulk', $o);
+    }
+
     /** POST /v1/outbound/tasks/{id}/assign */
     public function postV1OutboundTasksByIdAssign(array $o = []): mixed
     {
         return $this->request('POST', '/v1/outbound/tasks/{id}/assign', $o);
+    }
+
+    /** POST /v1/outbound/tasks/{id}/call - Click-to-call (or voicemail drop) from a call task through the workspace's Twilio; the call is logged on the task when Twilio reports back */
+    public function postV1OutboundTasksByIdCall(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/outbound/tasks/{id}/call', $o);
     }
 
     /** POST /v1/outbound/tasks/{id}/complete */
@@ -10142,6 +12566,30 @@ trait Operations
     public function postV1OutboundTasksSearch(array $o = []): mixed
     {
         return $this->request('POST', '/v1/outbound/tasks/search', $o);
+    }
+
+    /** POST /v1/outbound/task-types */
+    public function postV1OutboundTaskTypes(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/outbound/task-types', $o);
+    }
+
+    /** POST /v1/outbound/voice-clips - Upload an audio clip (multipart field "file"): MP3, M4A, OGG, WAV or WebM up to 5 MB */
+    public function postV1OutboundVoiceClips(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/outbound/voice-clips', $o);
+    }
+
+    /** POST /v1/page-sites - Create a website: pages that share a header, footer and menus */
+    public function postV1PageSites(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/page-sites', $o);
+    }
+
+    /** POST /v1/page-sites/{id}/domain/verify - Queue a DNS check (status `checking` until it lands); once verified the domain is added to the proxy routing file (TLS is issued automatical */
+    public function postV1PageSitesByIdDomainVerify(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/page-sites/{id}/domain/verify', $o);
     }
 
     /** POST /v1/pipelines/batch - Mixed batch of identify/track/page/screen/group/alias calls; bad calls are rejected by index, the rest land */
@@ -10180,6 +12628,12 @@ trait Operations
         return $this->request('POST', '/v1/postal-addresses', $o);
     }
 
+    /** POST /v1/profile-filters */
+    public function postV1ProfileFilters(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/profile-filters', $o);
+    }
+
     /** POST /v1/profiles */
     public function postV1Profiles(array $o = []): mixed
     {
@@ -10198,6 +12652,12 @@ trait Operations
         return $this->request('POST', '/v1/profiles/bulk', $o);
     }
 
+    /** POST /v1/profiles/{id}/ai-commerce-summary - A plain-language read of one customer's buying behaviour (frequency, spend, top products, carts), from their order figures only. Needs AI as */
+    public function postV1ProfilesByIdAiCommerceSummary(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/profiles/{id}/ai-commerce-summary', $o);
+    }
+
     /** POST /v1/profiles/{id}/archive - Archive a contact: kept with history, never sent to or counted until restored */
     public function postV1ProfilesByIdArchive(array $o = []): mixed
     {
@@ -10208,6 +12668,18 @@ trait Operations
     public function postV1ProfilesByIdConsent(array $o = []): mixed
     {
         return $this->request('POST', '/v1/profiles/{id}/consent', $o);
+    }
+
+    /** POST /v1/profiles/{id}/crm/find - Find this contact in the CRM by email and link it (nothing is created) */
+    public function postV1ProfilesByIdCrmFind(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/profiles/{id}/crm/find', $o);
+    }
+
+    /** POST /v1/profiles/{id}/crm/push - Push this contact to the CRM now */
+    public function postV1ProfilesByIdCrmPush(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/profiles/{id}/crm/push', $o);
     }
 
     /** POST /v1/profiles/{id}/devices - Add a device record by hand (flagged manual) */
@@ -10226,6 +12698,12 @@ trait Operations
     public function postV1ProfilesByIdDsarExport(array $o = []): mixed
     {
         return $this->request('POST', '/v1/profiles/{id}/dsar/export', $o);
+    }
+
+    /** POST /v1/profiles/{id}/files - Attach a file (multipart field "file"; the asset library's types and limits apply) */
+    public function postV1ProfilesByIdFiles(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/profiles/{id}/files', $o);
     }
 
     /** POST /v1/profiles/{id}/files/{key} - Upload a file (multipart field "file": image, PDF or MP4, up to 25 MB) into a profile property of type file; the property then holds the hos */
@@ -10262,6 +12740,12 @@ trait Operations
     public function postV1ProfilesByIdSuppress(array $o = []): mixed
     {
         return $this->request('POST', '/v1/profiles/{id}/suppress', $o);
+    }
+
+    /** POST /v1/profiles/{id}/suppress-delete - Suppress every address of a contact, delete the contact, and block its identifiers so no import, API call or event can re-create it */
+    public function postV1ProfilesByIdSuppressDelete(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/profiles/{id}/suppress-delete', $o);
     }
 
     /** POST /v1/profiles/{id}/tags */
@@ -10322,6 +12806,18 @@ trait Operations
     public function postV1ProgramsByIdAssets(array $o = []): mixed
     {
         return $this->request('POST', '/v1/programs/{id}/assets', $o);
+    }
+
+    /** POST /v1/push/live - Start a live notification for one contact (order tracking, a match score...). Push consent applies to marketing ones; suppression always app */
+    public function postV1PushLive(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/push/live', $o);
+    }
+
+    /** POST /v1/push/live/{id}/end - End the live notification (optionally with a final state and when to dismiss it) */
+    public function postV1PushLiveByIdEnd(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/push/live/{id}/end', $o);
     }
 
     /** POST /v1/push/test-send - Send a push template (with a flow step's extras) to a test profile's devices or one pasted device token, through the normal send checks */
@@ -10388,6 +12884,12 @@ trait Operations
     public function postV1ReportingValues(array $o = []): mixed
     {
         return $this->request('POST', '/v1/reporting/values', $o);
+    }
+
+    /** POST /v1/review-feeds/google/replace - Revoke every review feed link made so far and return new ones */
+    public function postV1ReviewFeedsGoogleReplace(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/review-feeds/google/replace', $o);
     }
 
     /** POST /v1/reviews - Ingest a review (pending unless status is set); emits review_created for the profile */
@@ -10492,10 +12994,22 @@ trait Operations
         return $this->request('POST', '/v1/segments/{id}/evaluate', $o);
     }
 
+    /** POST /v1/segments/{id}/export-jobs - Every current member as a CSV file, prepared in the background (poll GET /v1/exports/:id for the download link) */
+    public function postV1SegmentsByIdExportJobs(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/segments/{id}/export-jobs', $o);
+    }
+
     /** POST /v1/segments/{id}/match-runs - Match everyone against the segment now and keep the result as a run */
     public function postV1SegmentsByIdMatchRuns(array $o = []): mixed
     {
         return $this->request('POST', '/v1/segments/{id}/match-runs', $o);
+    }
+
+    /** POST /v1/segments/{id}/members - Add existing contacts to a hand-picked segment by profile id or email (grants no consent) */
+    public function postV1SegmentsByIdMembers(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/segments/{id}/members', $o);
     }
 
     /** POST /v1/segments/{id}/snapshots */
@@ -10576,10 +13090,22 @@ trait Operations
         return $this->request('POST', '/v1/sending-domains/{id}/check', $o);
     }
 
+    /** POST /v1/shared-object-schemas/{id}/install - Create or update the object type here from a shared schema (fields are merged, none removed) */
+    public function postV1SharedObjectSchemasByIdInstall(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/shared-object-schemas/{id}/install', $o);
+    }
+
     /** POST /v1/signals - Record an outside signal for a person (job change, funding...). It arrives as the event external_signal, so journeys and sequences can start */
     public function postV1Signals(array $o = []): mixed
     {
         return $this->request('POST', '/v1/signals', $o);
+    }
+
+    /** POST /v1/site-messages - Create a content-only on-site message (draft) */
+    public function postV1SiteMessages(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/site-messages', $o);
     }
 
     /** POST /v1/sites */
@@ -10592,6 +13118,30 @@ trait Operations
     public function postV1SitesByIdVerify(array $o = []): mixed
     {
         return $this->request('POST', '/v1/sites/{id}/verify', $o);
+    }
+
+    /** POST /v1/slack/installs - Install with your own Slack app's bot token (stored encrypted) */
+    public function postV1SlackInstalls(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/slack/installs', $o);
+    }
+
+    /** POST /v1/slack/oauth/start - Start "Add to Slack"; returns Slack's authorize URL */
+    public function postV1SlackOauthStart(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/slack/oauth/start', $o);
+    }
+
+    /** POST /v1/slack/templates - Create a Slack message template (text plus optional Block Kit blocks) */
+    public function postV1SlackTemplates(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/slack/templates', $o);
+    }
+
+    /** POST /v1/slack/test - Post a test message to a channel. Needs an idempotency key */
+    public function postV1SlackTest(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/slack/test', $o);
     }
 
     /** POST /v1/sms/ai-drafts - Write a text message from a brief; a draft for a person to review, never sent */
@@ -10708,6 +13258,42 @@ trait Operations
         return $this->request('POST', '/v1/snippets/bulk-delete', $o);
     }
 
+    /** POST /v1/social/accounts - Connect with a pasted access token (stored encrypted); connects every page/account it can post as unless externalId is given */
+    public function postV1SocialAccounts(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/social/accounts', $o);
+    }
+
+    /** POST /v1/social/oauth/{platform}/start - Start sign-in with the network; returns its authorize URL */
+    public function postV1SocialOauthByPlatformStart(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/social/oauth/{platform}/start', $o);
+    }
+
+    /** POST /v1/social/oauth/pending/{id} - Connect the picked pages and accounts from a sign-in; the others are forgotten */
+    public function postV1SocialOauthPendingById(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/social/oauth/pending/{id}', $o);
+    }
+
+    /** POST /v1/social/posts - Compose a post for one or more accounts: a draft, now, or scheduled. Needs an idempotency key */
+    public function postV1SocialPosts(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/social/posts', $o);
+    }
+
+    /** POST /v1/social/posts/{id}/cancel - Cancel a draft, scheduled or failed post */
+    public function postV1SocialPostsByIdCancel(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/social/posts/{id}/cancel', $o);
+    }
+
+    /** POST /v1/social/posts/{id}/replies - Reply to a comment as the page or account. Needs an idempotency key */
+    public function postV1SocialPostsByIdReplies(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/social/posts/{id}/replies', $o);
+    }
+
     /** POST /v1/soft-bounce-allowlist - Exempt an address or domain from automatic soft-bounce suppression */
     public function postV1SoftBounceAllowlist(array $o = []): mixed
     {
@@ -10796,6 +13382,24 @@ trait Operations
     public function postV1SponsorsNetworkMarketplaceByIdDecision(array $o = []): mixed
     {
         return $this->request('POST', '/v1/sponsors/network/marketplace/{id}/decision', $o);
+    }
+
+    /** POST /v1/sql-sources - Add a scheduled SELECT; only SELECT statements are accepted */
+    public function postV1SqlSources(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/sql-sources', $o);
+    }
+
+    /** POST /v1/sql-sources/{id}/preview - Test the connection and query: up to 20 rows, nothing imported */
+    public function postV1SqlSourcesByIdPreview(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/sql-sources/{id}/preview', $o);
+    }
+
+    /** POST /v1/sql-sources/{id}/run - Run the pull now (in the background) */
+    public function postV1SqlSourcesByIdRun(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/sql-sources/{id}/run', $o);
     }
 
     /** POST /v1/sso/saml/{workspaceId}/acs */
@@ -10888,6 +13492,12 @@ trait Operations
         return $this->request('POST', '/v1/templates', $o);
     }
 
+    /** POST /v1/templates/bulk-update - Move, tag, re-brand, set the topic of or archive up to 100 templates; each is applied or refused on its own */
+    public function postV1TemplatesBulkUpdate(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/templates/bulk-update', $o);
+    }
+
     /** POST /v1/templates/{id}/archive - Blocked (412) while a scheduled campaign or live workflow uses it, unless force=true */
     public function postV1TemplatesByIdArchive(array $o = []): mixed
     {
@@ -10906,7 +13516,7 @@ trait Operations
         return $this->request('POST', '/v1/templates/{id}/clone', $o);
     }
 
-    /** POST /v1/templates/{id}/convert - One-way: copy a block template into a new HTML template */
+    /** POST /v1/templates/{id}/convert - One-way copy into the other format: a block template into a new HTML template, an HTML template into a new drag-and-drop template */
     public function postV1TemplatesByIdConvert(array $o = []): mixed
     {
         return $this->request('POST', '/v1/templates/{id}/convert', $o);
@@ -10984,13 +13594,13 @@ trait Operations
         return $this->request('POST', '/v1/templates/{id}/versions/{versionId}/submit', $o);
     }
 
-    /** POST /v1/templates/github-sync/pull - Read files from the repository: new templates and changed template versions; journeys only ever update drafts, never a published version */
+    /** POST /v1/templates/github-sync/pull - Read files from the repository: new templates and changed template versions, journey drafts (never a published version) and segments (create */
     public function postV1TemplatesGithubSyncPull(array $o = []): mixed
     {
         return $this->request('POST', '/v1/templates/github-sync/pull', $o);
     }
 
-    /** POST /v1/templates/github-sync/push - Write every template and journey to the repository as one JSON file each (unchanged files are skipped) */
+    /** POST /v1/templates/github-sync/push - Write every template, journey and segment to the repository as one JSON file each (unchanged files are skipped) */
     public function postV1TemplatesGithubSyncPush(array $o = []): mixed
     {
         return $this->request('POST', '/v1/templates/github-sync/push', $o);
@@ -11054,6 +13664,12 @@ trait Operations
     public function postV1TransactionalDefinitionsByIdSend(array $o = []): mixed
     {
         return $this->request('POST', '/v1/transactional/definitions/{id}/send', $o);
+    }
+
+    /** POST /v1/transactional/metadata-fields */
+    public function postV1TransactionalMetadataFields(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/transactional/metadata-fields', $o);
     }
 
     /** POST /v1/transactional/parse - Parse a raw MIME message into from, to, subject, text, html, headers and attachment metadata (nothing is stored or sent) */
@@ -11170,6 +13786,12 @@ trait Operations
         return $this->request('POST', '/v1/webhooks/journal/exports', $o);
     }
 
+    /** POST /v1/webhooks/journal/snapshots - Write the current state of listed contacts into the journal as crm.snapshot entries, or freeze a segment and queue its entries for the worke */
+    public function postV1WebhooksJournalSnapshots(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/webhooks/journal/snapshots', $o);
+    }
+
     /** POST /v1/webhook-templates */
     public function postV1WebhookTemplates(array $o = []): mixed
     {
@@ -11186,6 +13808,30 @@ trait Operations
     public function postV1WebhookTemplatesTest(array $o = []): mixed
     {
         return $this->request('POST', '/v1/webhook-templates/test', $o);
+    }
+
+    /** POST /v1/whatsapp/flows - Create a Flow (draft) from its Flow JSON */
+    public function postV1WhatsappFlows(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/whatsapp/flows', $o);
+    }
+
+    /** POST /v1/whatsapp/flows/{id}/deprecate - Deprecate a published Flow at Meta (it can no longer be sent) */
+    public function postV1WhatsappFlowsByIdDeprecate(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/whatsapp/flows/{id}/deprecate', $o);
+    }
+
+    /** POST /v1/whatsapp/flows/{id}/publish - Upload the Flow JSON to Meta and publish it (validation errors are returned on the flow) */
+    public function postV1WhatsappFlowsByIdPublish(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/whatsapp/flows/{id}/publish', $o);
+    }
+
+    /** POST /v1/whatsapp/flows/{id}/run - Send a published Flow to one contact. WhatsApp consent (marketing) and suppression apply; outside the 24-hour window the flow template is us */
+    public function postV1WhatsappFlowsByIdRun(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/whatsapp/flows/{id}/run', $o);
     }
 
     /** POST /v1/whatsapp/send - Send one WhatsApp message: an approved template, or free text inside the 24-hour window. Consent, suppression and the window are enforced; n */
@@ -11228,6 +13874,12 @@ trait Operations
     public function postV1WorkflowActionsCallbacksComplete(array $o = []): mixed
     {
         return $this->request('POST', '/v1/workflow-actions/callbacks/complete', $o);
+    }
+
+    /** POST /v1/workflow-custom-types - Register an action type (runs a call template or code action) or a trigger type (fires on an event) */
+    public function postV1WorkflowCustomTypes(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/workflow-custom-types', $o);
     }
 
     /** POST /v1/workflows */
@@ -11306,6 +13958,12 @@ trait Operations
     public function postV1WorkflowsByIdEnrollmentsExitAll(array $o = []): mixed
     {
         return $this->request('POST', '/v1/workflows/{id}/enrollments/exit-all', $o);
+    }
+
+    /** POST /v1/workflows/{id}/enroll-object-segment - Enroll the people linked to each object in an object segment (the object rides along as the trigger event) */
+    public function postV1WorkflowsByIdEnrollObjectSegment(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/workflows/{id}/enroll-object-segment', $o);
     }
 
     /** POST /v1/workflows/{id}/migrate */
@@ -11404,6 +14062,12 @@ trait Operations
         return $this->request('POST', '/v1/workspace/dashboard-domain/verify', $o);
     }
 
+    /** POST /v1/workspaces/current/reset - Owner only: delete the chosen data (contacts, events, messages, campaigns, journeys) and keep settings, members, keys, connections, template */
+    public function postV1WorkspacesCurrentReset(array $o = []): mixed
+    {
+        return $this->request('POST', '/v1/workspaces/current/reset', $o);
+    }
+
     /** POST /v1/workspaces/current/schedule-for-removal - Owner only: stop sending now and erase the workspace after the grace period */
     public function postV1WorkspacesCurrentScheduleForRemoval(array $o = []): mixed
     {
@@ -11426,6 +14090,24 @@ trait Operations
     public function postV2Entity(array $o = []): mixed
     {
         return $this->request('POST', '/v2/entity', $o);
+    }
+
+    /** POST /wallet/apple/{ws}/v1/devices/{device}/registrations/{passType}/{serial} */
+    public function postWalletAppleByWsV1DevicesByDeviceRegistrationsByPassTypeBySerial(array $o = []): mixed
+    {
+        return $this->request('POST', '/wallet/apple/{ws}/v1/devices/{device}/registrations/{passType}/{serial}', $o);
+    }
+
+    /** POST /wallet/apple/{ws}/v1/log */
+    public function postWalletAppleByWsV1Log(array $o = []): mixed
+    {
+        return $this->request('POST', '/wallet/apple/{ws}/v1/log', $o);
+    }
+
+    /** POST /webhooks/ads/meta/leadgen - Meta leadgen delivery: queues the matching lead form syncs at once */
+    public function postWebhooksAdsMetaLeadgen(array $o = []): mixed
+    {
+        return $this->request('POST', '/webhooks/ads/meta/leadgen', $o);
     }
 
     /** POST /webhooks/billing/stripe */
@@ -11452,6 +14134,12 @@ trait Operations
         return $this->request('POST', '/webhooks/bounce/{workspaceId}/{connectionId}/generic', $o);
     }
 
+    /** POST /webhooks/bounce/{workspaceId}/{connectionId}/lettermint - Lettermint webhook (hard/soft bounce, spam complaint, delivered); X-Lettermint-Signature t=<unix>,v1=HMAC-SHA256 of "<t>.<body>" with the co */
+    public function postWebhooksBounceByWorkspaceIdByConnectionIdLettermint(array $o = []): mixed
+    {
+        return $this->request('POST', '/webhooks/bounce/{workspaceId}/{connectionId}/lettermint', $o);
+    }
+
     /** POST /webhooks/bounce/{workspaceId}/{connectionId}/sparkpost - SparkPost events receiver; authenticate with the X-MessageSystems-Webhook-Token header (or basic auth) = connection webhook secret */
     public function postWebhooksBounceByWorkspaceIdByConnectionIdSparkpost(array $o = []): mixed
     {
@@ -11474,6 +14162,12 @@ trait Operations
     public function postWebhooksIntegrationsByWorkspaceIdByConnectionId(array $o = []): mixed
     {
         return $this->request('POST', '/webhooks/integrations/{workspaceId}/{connectionId}', $o);
+    }
+
+    /** POST /webhooks/outbound-voice/{workspaceId}/{taskId} - Twilio Voice status / dial / answering-machine callback: plays the voicemail clip or bridges the rep, and logs the call on the task */
+    public function postWebhooksOutboundVoiceByWorkspaceIdByTaskId(array $o = []): mixed
+    {
+        return $this->request('POST', '/webhooks/outbound-voice/{workspaceId}/{taskId}', $o);
     }
 
     /** POST /webhooks/stripe-memberships/{workspaceId} */
@@ -11566,6 +14260,12 @@ trait Operations
         return $this->request('PUT', '/v1/assets/uploads/{id}/chunks/{n}', $o);
     }
 
+    /** PUT /v1/associations/{fromType}/{fromId}/{toType}/{toId} - Associate two records; without a label the pair's default label is used (or "related") */
+    public function putV1AssociationsByFromTypeByFromIdByToTypeByToId(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/associations/{fromType}/{fromId}/{toType}/{toId}', $o);
+    }
+
     /** PUT /v1/attributes/fields/{key}/lists/{listId} - Show this field for people on this list */
     public function putV1AttributesFieldsByKeyListsByListId(array $o = []): mixed
     {
@@ -11588,6 +14288,12 @@ trait Operations
     public function putV1BrandKitsByIdVoice(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/brand-kits/{id}/voice', $o);
+    }
+
+    /** PUT /v1/budgets/{id}/folder */
+    public function putV1BudgetsByIdFolder(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/budgets/{id}/folder', $o);
     }
 
     /** PUT /v1/campaign-folders/{id}/assets/{assetType}/{assetId} - File an asset under the folder (moves it if it was in another folder) */
@@ -11618,6 +14324,18 @@ trait Operations
     public function putV1CampaignsByIdFolder(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/campaigns/{id}/folder', $o);
+    }
+
+    /** PUT /v1/campaigns/{id}/messages/{messageId}/variants/{key} */
+    public function putV1CampaignsByIdMessagesByMessageIdVariantsByKey(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/campaigns/{id}/messages/{messageId}/variants/{key}', $o);
+    }
+
+    /** PUT /v1/campaigns/{id}/postcard - Save the postcard design (6x4 or 9x6, HTML front and back with merge tags) */
+    public function putV1CampaignsByIdPostcard(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/campaigns/{id}/postcard', $o);
     }
 
     /** PUT /v1/campaigns/{id}/push - Set the content of a draft push campaign */
@@ -11686,6 +14404,12 @@ trait Operations
         return $this->request('PUT', '/v1/commerce/stores/{storeId}/orders', $o);
     }
 
+    /** PUT /v1/commerce/stores/{storeId}/orders/{id} - Create or replace the order under the store's own order id */
+    public function putV1CommerceStoresByStoreIdOrdersById(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/commerce/stores/{storeId}/orders/{id}', $o);
+    }
+
     /** PUT /v1/commerce/stores/{storeId}/products/{productId} - Create or replace a product in this store */
     public function putV1CommerceStoresByStoreIdProductsByProductId(array $o = []): mixed
     {
@@ -11702,6 +14426,12 @@ trait Operations
     public function putV1CommerceStoresByStoreIdProductsByProductIdVariantsByVariantId(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/commerce/stores/{storeId}/products/{productId}/variants/{variantId}', $o);
+    }
+
+    /** PUT /v1/compliance/export-retention */
+    public function putV1ComplianceExportRetention(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/compliance/export-retention', $o);
     }
 
     /** PUT /v1/compliance/gpc */
@@ -11726,6 +14456,12 @@ trait Operations
     public function putV1ComplianceTrashRetention(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/compliance/trash-retention', $o);
+    }
+
+    /** PUT /v1/compliance/unconfirmed-purge */
+    public function putV1ComplianceUnconfirmedPurge(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/compliance/unconfirmed-purge', $o);
     }
 
     /** PUT /v1/compliance/unsubscribe-purge - GDPR auto-purge: erase contacts N days after they unsubscribed (their address stays suppressed) */
@@ -11770,10 +14506,22 @@ trait Operations
         return $this->request('PUT', '/v1/delivery/settings', $o);
     }
 
+    /** PUT /v1/embed-api/{token}/journey - Save the journey draft (publish with POST .../journey/publish) */
+    public function putV1EmbedApiByTokenJourney(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/embed-api/{token}/journey', $o);
+    }
+
     /** PUT /v1/event-definitions/{name}/properties/{prop} - Add or change one declared property type */
     public function putV1EventDefinitionsByNamePropertiesByProp(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/event-definitions/{name}/properties/{prop}', $o);
+    }
+
+    /** PUT /v1/events/settings - Turn server-side event ingest on or off (callers get 412 while off, nothing is dropped silently), or set the primary-key field */
+    public function putV1EventsSettings(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/events/settings', $o);
     }
 
     /** PUT /v1/forms/{id} - Replace the draft (name, definition, targeting) */
@@ -11794,6 +14542,12 @@ trait Operations
         return $this->request('PUT', '/v1/frequency-settings', $o);
     }
 
+    /** PUT /v1/integrations/connections/{id}/crm/users */
+    public function putV1IntegrationsConnectionsByIdCrmUsers(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/integrations/connections/{id}/crm/users', $o);
+    }
+
     /** PUT /v1/integrations/connections/{id}/declarative/push - Turn on sending changed profiles to this CRM/helpdesk (off by default), optionally for one segment */
     public function putV1IntegrationsConnectionsByIdDeclarativePush(array $o = []): mixed
     {
@@ -11806,10 +14560,22 @@ trait Operations
         return $this->request('PUT', '/v1/integrations/connections/{id}/declarative/webhook-secret', $o);
     }
 
+    /** PUT /v1/integrations/crm-settings - Set how many days the CRM sync log keeps rows (7 to 3650) */
+    public function putV1IntegrationsCrmSettings(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/integrations/crm-settings', $o);
+    }
+
     /** PUT /v1/integrations/secrets/{name} - Create or replace a secret */
     public function putV1IntegrationsSecretsByName(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/integrations/secrets/{name}', $o);
+    }
+
+    /** PUT /v1/landing-page-clusters/{id} */
+    public function putV1LandingPageClustersById(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/landing-page-clusters/{id}', $o);
     }
 
     /** PUT /v1/landing-page-languages - Re-label locales of pages in one group */
@@ -11834,6 +14600,18 @@ trait Operations
     public function putV1LandingPagesByIdLanguagesPrimary(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/landing-pages/{id}/languages/primary', $o);
+    }
+
+    /** PUT /v1/landing-pages/{id}/seo/keyword - Set the focus keyword the audit checks */
+    public function putV1LandingPagesByIdSeoKeyword(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/landing-pages/{id}/seo/keyword', $o);
+    }
+
+    /** PUT /v1/landing-pages/{id}/site - Put the page in a website (null takes it out) */
+    public function putV1LandingPagesByIdSite(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/landing-pages/{id}/site', $o);
     }
 
     /** PUT /v1/leads/settings */
@@ -11872,10 +14650,28 @@ trait Operations
         return $this->request('PUT', '/v1/lists/{id}/tags', $o);
     }
 
+    /** PUT /v1/loyalty/hub */
+    public function putV1LoyaltyHub(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/loyalty/hub', $o);
+    }
+
+    /** PUT /v1/loyalty/programs/{id}/wallet - Set up Apple and Google Wallet passes (secrets are write-only and stored sealed) */
+    public function putV1LoyaltyProgramsByIdWallet(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/loyalty/programs/{id}/wallet', $o);
+    }
+
     /** PUT /v1/mapped-metrics/{role} */
     public function putV1MappedMetricsByRole(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/mapped-metrics/{role}', $o);
+    }
+
+    /** PUT /v1/marketing-events/apps - Set the event-details URL template of an event app (by name) */
+    public function putV1MarketingEventsApps(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/marketing-events/apps', $o);
     }
 
     /** PUT /v1/marketing-events/{id}/lists/{listId} - Attach a list and register its members */
@@ -11938,7 +14734,7 @@ trait Operations
         return $this->request('PUT', '/v1/newsletter/stripe', $o);
     }
 
-    /** PUT /v1/notes/{id} */
+    /** PUT /v1/notes/{id} - Edit a contact or company note */
     public function putV1NotesById(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/notes/{id}', $o);
@@ -11962,6 +14758,12 @@ trait Operations
         return $this->request('PUT', '/v1/outbound/ai-key', $o);
     }
 
+    /** PUT /v1/outbound/booking-pages/{id} */
+    public function putV1OutboundBookingPagesById(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/outbound/booking-pages/{id}', $o);
+    }
+
     /** PUT /v1/outbound/call-dispositions */
     public function putV1OutboundCallDispositions(array $o = []): mixed
     {
@@ -11978,6 +14780,12 @@ trait Operations
     public function putV1OutboundInboxByIdDraftsByDraftId(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/outbound/inbox/{id}/drafts/{draftId}', $o);
+    }
+
+    /** PUT /v1/outbound/inbox-routing/{channel} - Default inbox and default assignee for new replies on a channel */
+    public function putV1OutboundInboxRoutingByChannel(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/outbound/inbox-routing/{channel}', $o);
     }
 
     /** PUT /v1/outbound/mailbox-meta/{id} */
@@ -12028,6 +14836,42 @@ trait Operations
         return $this->request('PUT', '/v1/outbound/sequences/{id}/tags', $o);
     }
 
+    /** PUT /v1/outbound/task-types/{id} */
+    public function putV1OutboundTaskTypesById(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/outbound/task-types/{id}', $o);
+    }
+
+    /** PUT /v1/outbound/telephony */
+    public function putV1OutboundTelephony(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/outbound/telephony', $o);
+    }
+
+    /** PUT /v1/outbound/telephony/my-phone */
+    public function putV1OutboundTelephonyMyPhone(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/outbound/telephony/my-phone', $o);
+    }
+
+    /** PUT /v1/page-sites/{id}/domain - Set the custom domain; publish the returned DNS records, then verify */
+    public function putV1PageSitesByIdDomain(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/page-sites/{id}/domain', $o);
+    }
+
+    /** PUT /v1/postal-addresses/{id}/groups */
+    public function putV1PostalAddressesByIdGroups(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/postal-addresses/{id}/groups', $o);
+    }
+
+    /** PUT /v1/profile-filters/{id} */
+    public function putV1ProfileFiltersById(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/profile-filters/{id}', $o);
+    }
+
     /** PUT /v1/profiles/{id}/contact-prefs */
     public function putV1ProfilesByIdContactPrefs(array $o = []): mixed
     {
@@ -12050,6 +14894,12 @@ trait Operations
     public function putV1RegistrarDomainsByIdForwarding(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/registrar/domains/{id}/forwarding', $o);
+    }
+
+    /** PUT /v1/review-settings */
+    public function putV1ReviewSettings(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/review-settings', $o);
     }
 
     /** PUT /v1/roles/{id} */
@@ -12076,16 +14926,40 @@ trait Operations
         return $this->request('PUT', '/v1/seed-lists/{id}', $o);
     }
 
+    /** PUT /v1/segments - Create or update by name: the live segment with this name (case-insensitive) gets these rules, else a new one is made */
+    public function putV1Segments(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/segments', $o);
+    }
+
     /** PUT /v1/segments/settings - Change spend tiers or the geocoding provider; segments that use them recalculate */
     public function putV1SegmentsSettings(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/segments/settings', $o);
     }
 
+    /** PUT /v1/senders/{id}/signing/pgp - Sign this sender's email with PGP/MIME: an armored private key with a user id for its address, and its passphrase */
+    public function putV1SendersByIdSigningPgp(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/senders/{id}/signing/pgp', $o);
+    }
+
+    /** PUT /v1/senders/{id}/signing/smime - Sign this sender's email with S/MIME: PEM certificate issued for its address, its unencrypted private key, optional chain */
+    public function putV1SendersByIdSigningSmime(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/senders/{id}/signing/smime', $o);
+    }
+
     /** PUT /v1/send-options/{sourceKind}/{sourceId} - Replace the attachments (base64, stored in object storage) and allowlisted headers of a source; reserved headers are rejected */
     public function putV1SendOptionsBySourceKindBySourceId(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/send-options/{sourceKind}/{sourceId}', $o);
+    }
+
+    /** PUT /v1/send-options/{sourceKind}/{sourceId}/behaviour - Strict Liquid (null = default strict) and send-from-contact-owner for a campaign, journey or sequence; other send options are untouched */
+    public function putV1SendOptionsBySourceKindBySourceIdBehaviour(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/send-options/{sourceKind}/{sourceId}/behaviour', $o);
     }
 
     /** PUT /v1/send-options/{sourceKind}/{sourceId}/footer-address - Choose which saved address prints in the email footer of a campaign, journey or sequence (null = workspace address); attachments and headers */
@@ -12122,6 +14996,12 @@ trait Operations
     public function putV1SitesByIdAllowlist(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/sites/{id}/allowlist', $o);
+    }
+
+    /** PUT /v1/slack/templates/{id} - Edit a Slack message template */
+    public function putV1SlackTemplatesById(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/slack/templates/{id}', $o);
     }
 
     /** PUT /v1/sms/ai-drafts/{id} - Write it again from a new brief or tone, replacing this draft */
@@ -12178,6 +15058,12 @@ trait Operations
         return $this->request('PUT', '/v1/sso/oidc', $o);
     }
 
+    /** PUT /v1/standard-fields/{key} */
+    public function putV1StandardFieldsByKey(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/standard-fields/{key}', $o);
+    }
+
     /** PUT /v1/tags/resources/{resourceType}/{resourceId} - Replace the resource tag set */
     public function putV1TagsResourcesByResourceTypeByResourceId(array $o = []): mixed
     {
@@ -12218,6 +15104,12 @@ trait Operations
     public function putV1UserGroupsById(array $o = []): mixed
     {
         return $this->request('PUT', '/v1/user-groups/{id}', $o);
+    }
+
+    /** PUT /v1/user-groups/{id}/access - Lists the group's members may reach (null = the group does not limit lists) and caps such as sends per day */
+    public function putV1UserGroupsByIdAccess(array $o = []): mixed
+    {
+        return $this->request('PUT', '/v1/user-groups/{id}/access', $o);
     }
 
     /** PUT /v1/white-label - Set the white-label look; send null to clear a field */
